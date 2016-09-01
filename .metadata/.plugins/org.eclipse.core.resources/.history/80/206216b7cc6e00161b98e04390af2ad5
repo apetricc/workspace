@@ -1,0 +1,9 @@
+package trafficsimulation;
+
+public class TrafficLight {
+
+	public TrafficLight(int greenTiming, int yellowTiming, int redTiming) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

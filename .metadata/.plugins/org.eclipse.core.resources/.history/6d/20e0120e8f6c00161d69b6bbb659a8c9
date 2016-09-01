@@ -1,0 +1,63 @@
+package drawingpackage;
+import csci348.drawings.Drawing;
+public class DrawProgram {
+	Drawing myDrawing = new Drawing();
+
+	public DrawProgram() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void drawTop(int x, Drawing drawing) {
+		int y = x;
+		for (int i = x; i < 300; i++) {
+			drawing.showPoint(++x, y);
+		}
+	}//drawTop
+	public static void drawLeftSide(int y, Drawing drawing) {
+		int x = y;
+		for(int i = y; i < 300; i++){
+			drawing.showPoint(x, --y);
+			
+		}
+	}//drawLeftSide
+	public static void drawBottom(int x, Drawing drawing) {
+		int y = x-100;
+		for (int i = x; i < 300; i++) {
+			drawing.showPoint(++x, y);
+		}
+	}//drawTop
+	public static void drawRightSide(int y, Drawing drawing) {
+		int x = y+100;
+		for(int i = y; i < 300; i++){
+			drawing.showPoint(x, --y);
+			
+		}
+	}//drawLeftSide
+	public static void drawSquare(int x, Drawing drawing) {
+		drawTop(x, drawing);
+		drawLeftSide(x, drawing);
+		drawBottom(x, drawing);
+		drawRightSide(x, drawing);
+		
+	}//drawSquare
+	
+	public void drawHorizontalLine(Drawing drawing, int x, int y, int length) {
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/**
+		for (int i = 50; i < 400; i++) {
+			myDrawing.showPoint(i, i+1);
+		}
+		**/
+		//myDrawing.showPoint(100, 100);
+		
+//		drawHorizontalLine(100, myDrawing);
+//		drawVerticalLine(100, myDrawing);
+//		
+		//drawSquare(200);
+	}//main
+
+}//DrawProgram class

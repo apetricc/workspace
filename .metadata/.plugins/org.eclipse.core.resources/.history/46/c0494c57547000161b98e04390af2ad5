@@ -1,0 +1,27 @@
+package trafficsimulation;
+
+public class TrafficLight {
+
+	private int greenTiming;
+	private int yellowTiming;
+	private int redTiming;
+		
+	public TrafficLight(int greenTiming, int yellowTiming, int redTiming) {
+		this.greenTiming = greenTiming;
+		this.yellowTiming = yellowTiming;
+		this.redTiming = redTiming;
+	}
+
+	public int getGreenTiming() {
+		return greenTiming;
+	}
+
+	public int getYellowTiming() {
+		return yellowTiming;
+	}
+
+	public int getRedTiming() {
+		return redTiming;
+	}
+
+}

@@ -1,0 +1,15 @@
+package trafficsimulation;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+public class TestTrafficLight {
+	
+	@Test
+	public void testMakeTrafficLight() {
+		TrafficLight t1 = new TrafficLight(30, 5, 35);
+		assertEquals(30, t1.getGreenTiming());
+		assertEquals(5, t1.getYellowTiming());
+		assertEquals(35, t1.getRedTiming());
+	}
+
+}
