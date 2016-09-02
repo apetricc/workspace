@@ -53,7 +53,11 @@ public class DrawProgram {
 		//draw.drawVerticalLine(50, 10, 550);
 		//draw.drawSquare(50, 50, 150);
 		HorizontalLine hLine1 = new HorizontalLine(5, 5, 55, 55);
-		hLine1.draw(myDrawing);
+		//hLine1.draw(myDrawing);
+		VerticalLine vLine1 = new VerticalLine(150, 150, 150, 600);
+		//vLine1.draw(myDrawing);
+		Line testLine = new Line(10, 10, 50, 350);
+		testLine.draw(myDrawing);
 		
 	}//main
 

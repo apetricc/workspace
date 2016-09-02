@@ -1,28 +1,23 @@
 package drawingpackage;
 
+import csci348.drawings.Drawing;
 
-public class Box {
+public class Box extends DrawProgram{
 
 	
-	private int x;
-	private int y;
+	private int startX;
+	private int startY;
 	private int height;
 	private int width;
-	private Box parent;
-	private Box child;
-	private Box root;
 	private String title;
 	
 	
 	
-	public Box(String title, int x, int y,int height, int width, Box parent, Box child) {
-		this.title = title;
-		this.height = height;
+	public Box(int startX, int startY,int width, int height) {
+		this.startX = startX;
+		this.startY = startY;
 		this.width = width;
-		this.x = x;
-		this.y = y;
-		this.parent = parent;
-		this.child = child;
+		this.height = height;
 	}
 
 	public String getTitle() {
@@ -33,41 +28,25 @@ public class Box {
 	}
 	
 	public int getX() {
-		return x;
+		return startX;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setStartX(int startX) {
+		this.startX = startX;
 	}
 
 	public int getY() {
-		return y;
+		return startY;
 	}
 
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public Box getParent() {
-		return parent;
-	}
-
-	public void setParent(Box parent) {
-		this.parent = parent;
-	}
-
-	public Box getChild() {
-		return child;
-	}
-
-	public void setChild(Box child) {
-		this.child = child;
+	public void setStartY(int startY) {
+		this.startY = startY;
 	}
 	
-	public boolean isRoot(Box box) {
-		return (box.parent == null);
+	public void draw(Drawing box) {
+		HorizontalLine hLine1 = new HorizontalLine(startX, startY, startX + width, startY + height);
+		hLine1.draw(box);
+		
 	}
-	
-	
 	
 }

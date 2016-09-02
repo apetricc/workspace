@@ -10,6 +10,8 @@ public class VerticalLine extends Line{
 
 	@Override
 	public void draw(Drawing draw) {
-		
+		for (int i = startY; i <= endY; i++) {
+			draw.showPoint(startX, i);
+		}
 	}
 }

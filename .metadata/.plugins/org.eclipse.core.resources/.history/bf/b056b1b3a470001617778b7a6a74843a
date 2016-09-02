@@ -1,0 +1,45 @@
+package drawingpackage;
+
+import csci348.drawings.Drawing;
+
+public class Line {
+	protected final int startX;
+	protected final int startY;
+	protected final int endX;
+	protected final int endY;
+	
+	public Line(int startX, int startY, int endX, int endY) {
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+	}
+	
+	//I have a feeling this will need to use slope intercept form somehow, y = mx + b
+	// m = (y2 - y1)/(x2-x1)
+	public void draw(Drawing draw) {
+		int m = (endY - startY)/(endX - startX);
+		for (int i = startX; i < endX; i++) {
+				draw.showPoint(i, m*i);
+			for(int j = startY; j < endY; j++) {
+				draw.showPoint(i,m*i);
+			}
+			
+				
+			}
+			
+		}
+		
+	
+	
+	
+	
+	
+	public void erase(){
+		
+	}
+	
+	
+	
+
+}

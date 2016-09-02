@@ -15,11 +15,18 @@ public class Line {
 		this.endY = endY;
 	}
 	
-	
+	//I have a feeling this will need to use slope intercept form somehow, y = mx + b
+	// m = (y2 - y1)/(x2-x1)
 	public void draw(Drawing draw) {
+		int m = (endY - startY)/(endX - startX);
+		for (int i = startX; i < endX; i+=m) {
+			for(int j = startY; j < endY; j+=m) {
+				draw.showPoint(i,i*m);
+			}//for j				
+		}//for i 			
+	}//draw
 		
-		
-	}
+	
 	
 	
 	
