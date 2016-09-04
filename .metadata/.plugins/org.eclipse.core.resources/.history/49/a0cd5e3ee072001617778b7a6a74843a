@@ -110,7 +110,8 @@ private void right(Box box2, Drawing draw) {
 	int xConnect1 = this.startX;
 	int yConnect1 = this.startY + this.height/2;
 	int xConnect2 = box2.startX + box2.width;
-	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
+	int yConnect2 = box2.startY + box2.height/2;
+	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect2);
 	hLine1.draw(draw);		
 	}
 private void left (Box box2, Drawing draw) {

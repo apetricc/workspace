@@ -110,20 +110,29 @@ private void right(Box box2, Drawing draw) {
 	int xConnect1 = this.startX;
 	int yConnect1 = this.startY + this.height/2;
 	int xConnect2 = box2.startX + box2.width;
-	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
+	int yConnect2 = box2.startY + box2.height/2;
+	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect2);
 	hLine1.draw(draw);		
 	}
 private void left (Box box2, Drawing draw) {
 	int xConnect1 = this.startX + this.width;
 	int yConnect1 = this.startY + this.height/2;
 	int xConnect2 = box2.startX;
-	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
+	int yConnect2 = box2.startY + box2.height/2;
+	int yJoint = yConnect1 + (Math.abs(yConnect1-yConnect2)/2);
+	VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect1,yJoint);
+	HorizontalLine hLine1 = new HorizontalLine(xConnect1, yJoint, xConnect2, yJoint);
+	VerticalLine vLine2 = new VerticalLine(xConnect2, yConnect2, xConnect2, yJoint);
+	vLine1.draw(draw);
 	hLine1.draw(draw);
+	vLine2.draw(draw);
 }
 private void above(Box box2, Drawing draw) {
 	int xConnect1 = this.startX + this.width/2;
 	int yConnect1 = this.startY + this.height;
-	int yConnect2 = box2.startY;	
+	
+	int yConnect2 = box2.startY;
+	
 	VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect1,yConnect2);
 	vLine1.draw(draw);
 	
