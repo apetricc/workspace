@@ -9,8 +9,16 @@ public class HorizontalLine extends Line{
 
 	@Override
 	public void draw(Drawing draw) {
-		for (int i = startX; i <= endX; i++) {
-			 draw.showPoint(i, startY);
-		}
-	}
-}
+		if (startX == endX) System.out.println("Can't draw horizontal line vertically--use vertical line.");
+		if (startX < endX) {
+			for (int i = startX; i <= endX; i++) {
+				 draw.showPoint(i, startY);
+			}
+		}//startX < endX
+		if (startX > endX) {
+			for (int i = endX; i <= startX; i++) {
+				draw.showPoint(i, startY);
+			}
+		}//startX > endX
+	}//draw
+}//HorizontalLine
