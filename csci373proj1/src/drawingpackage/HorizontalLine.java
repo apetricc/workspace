@@ -21,4 +21,17 @@ public class HorizontalLine extends Line{
 			}
 		}//startX > endX
 	}//draw
+	public void erase(Drawing draw) {
+		if (startX == endX) System.out.println("Can't draw horizontal line vertically--use vertical line.");
+		if (startX < endX) {
+			for (int i = startX; i <= endX; i++) {
+				 draw.hidePoint(i, startY);
+			}
+		}//startX < endX
+		if (startX > endX) {
+			for (int i = endX; i <= startX; i++) {
+				draw.hidePoint(i, startY);
+			}
+		}//startX > endX
+	}
 }//HorizontalLine

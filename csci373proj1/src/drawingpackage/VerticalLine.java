@@ -20,6 +20,19 @@ public class VerticalLine extends Line{
 			for (int i = endY; i <=startY; i++) {
 				draw.showPoint(startX, i);
 			}
+		}//startY > endY	
+	}//draw
+	public void erase(Drawing draw) {
+		if (startY==endY) System.out.println("Can't draw vertical line horizontally--use horizontal line.");
+		if (startY<endY) {
+			for (int i = startY; i <= endY; i++) {
+				draw.hidePoint(startX, i);
+			}
+		}//startY<=endY
+		if (startY > endY) {
+			for (int i = endY; i <=startY; i++) {
+				draw.hidePoint(startX, i);
+			}
 		}//startY > endY
 	}
 	

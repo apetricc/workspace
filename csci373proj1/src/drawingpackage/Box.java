@@ -1,5 +1,7 @@
 package drawingpackage;
 
+import java.util.ArrayList;
+
 import csci348.drawings.Drawing;
 
 public class Box extends DrawProgram{
@@ -10,7 +12,7 @@ public class Box extends DrawProgram{
 	private int height;
 	private int width;
 	private String title;
-	
+	ArrayList diagram = new ArrayList<Box>();
 	
 	
 	public Box(int startX, int startY,int width, int height) {
@@ -18,15 +20,8 @@ public class Box extends DrawProgram{
 		this.startY = startY;
 		this.width = width;
 		this.height = height;
+		diagram.add(this);
 	}
-
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String newTitle) {
-		this.title = newTitle;
-	}
-	
 	public int getX() {
 		return startX;
 	}
@@ -42,14 +37,17 @@ public class Box extends DrawProgram{
 	public void setStartY(int startY) {
 		this.startY = startY;
 	}
-	//public HorizontalLine(int startX, int startY, int endX, int endY)
-	//public Box(int startX, int startY,int width, int height)
+	public int getHeight() {
+		return height;
+	}
+	public int getWidth() {
+		return width;
+	}
 	public void draw(Drawing box) {
 		HorizontalLine hLine1 = new HorizontalLine(startX, startY, startX + width, startY);
 		HorizontalLine hLine2 = new HorizontalLine(startX, startY+height, startX + width, startY + height);
 		hLine1.draw(box);
 		hLine2.draw(box);
-		//		VerticalLine vLine1 = new VerticalLine(startX, startY, endX, endY);
 		VerticalLine vLine1 = new VerticalLine(startX, startY, startX, startY + height);
 		VerticalLine vLine2 = new VerticalLine(startX + width, startY, startX+width, startY + height);
 		vLine1.draw(box);
@@ -70,7 +68,6 @@ public class Box extends DrawProgram{
 		if (box1IsRight && horizontallyAdjacent) right(box2, draw);
 		if (box1IsLeft && box1IsAbove) leftAndAbove(box2, draw);
 		if (box1IsLeft && box1IsBelow) leftAndBelow(box2, draw);
-				
 		if (box1IsRight && box1IsAbove) rightAndAbove(box2, draw);
 		if (box1IsRight && box1IsBelow) rightAndBelow(box2, draw);
 		
@@ -138,17 +135,6 @@ private void below(Box box2, Drawing draw) {
 	vLine1.draw(draw);
 
 	}
-
-
-// 
-//	public void leftAndAbove(int xConnect1, int yConnect1, int xConnect2, int yConnect2, int yJoint, Drawing draw) {
-//		VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect1,yJoint);
-//		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yJoint, xConnect2, yJoint);
-//		VerticalLine vLine2 = new VerticalLine(xConnect2, yConnect2, xConnect2, yJoint);
-//		vLine1.draw(draw);
-//		hLine1.draw(draw);
-//		vLine2.draw(draw);
-//	}
 	private void leftAndAbove( Box box2, Drawing draw) {
 		int xConnect1 = this.startX + this.width;
 		int yConnect1 = this.startY + this.height/2;
@@ -176,5 +162,29 @@ private void below(Box box2, Drawing draw) {
 		hLine1.draw(draw);
 		hLine2.draw(draw);	
 		}
+	public void erase(Drawing draw) {
+		int width = this.getWidth();
+		int height = this.getHeight();
+		int x = this.getX();
+		int y = this.getY();
+		
+		for (int i = x; i <= x+width;i++) {
+			draw.hidePoint(i, y);
+			draw.hidePoint(i, y + height);
+		}
+		for (int j = y; j <= y+height; j++) {
+			draw.hidePoint(x, j);
+			draw.hidePoint(x+width, j);
+		}
+		
+	}
 	
-}
+	
+	
+	public void eraseBox(Drawing draw) {
+		if (!diagram.isEmpty()) {
+			((Box) diagram.get(diagram.size()-1)).erase(draw);
+			diagram.remove(diagram.size());
+		}
+	}
+}//Box

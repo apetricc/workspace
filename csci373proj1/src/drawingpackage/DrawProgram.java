@@ -1,4 +1,5 @@
 package drawingpackage;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import csci348.drawings.Drawing;
@@ -40,9 +41,7 @@ public class DrawProgram {
     	
     }
     	
-	public void connectBoxes() {
-		LinkedList diagram = new LinkedList();
-	}
+	
 	
 	/**
 	 * MAIN METHOD!!
@@ -57,10 +56,10 @@ public class DrawProgram {
 		//hLine1.draw(myDrawing);
 		VerticalLine vLine1 = new VerticalLine(150, 150, 150, 600);
 		//vLine1.draw(myDrawing);
-		Line testLine = new Line(10, 10, 50, 350);
-		testLine.draw(myDrawing);
+//		Line testLine = new Line(10, 10, 50, 350);
+//		testLine.draw(myDrawing);
 		Line testLine2 = new Line(100, 100, 550, 210);
-		testLine2.draw(myDrawing);
+		//testLine2.draw(myDrawing);
 		myDrawing.showPoint(50, 350);
 		//public HorizontalLine(int startX, int startY, int endX, int endY)
 		
@@ -90,13 +89,18 @@ public class DrawProgram {
 		anotherBox.draw(myDrawing);
 		testBox.connectBoxes(anotherBox, myDrawing);
 		testBox.connectBoxes(anotherBox, myDrawing);
-		HorizontalLine drawLeft = new HorizontalLine(550, 350, 10, 350);
-		drawLeft.draw(myDrawing);
+//		HorizontalLine drawLeft = new HorizontalLine(550, 350, 10, 350);
+//		drawLeft.draw(myDrawing);
 		VerticalLine drawUp = new VerticalLine(125, 100, 125, 30);
 		drawUp.draw(myDrawing);
 		Box downRight = new Box(200, 300, 25,25);
 		downRight.draw(myDrawing);
 		testBox.connectBoxes(downRight, myDrawing);
+		
+		Line angleUp = new Line(300, 30, 500, 600);
+		angleUp.draw(myDrawing);
+		testBox2.erase(myDrawing);
+		testBox3.eraseBox(myDrawing);
 	}//main
 
 }//DrawProgram class

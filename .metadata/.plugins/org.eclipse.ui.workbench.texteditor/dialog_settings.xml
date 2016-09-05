@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="//int yJoint = yConnect1 + (Math.abs(yConnect1-yConnect2)/2);" key="selection"/>
+		<list key="findhistory">
+			<item value="//int yJoint = yConnect1 + (Math.abs(yConnect1-yConnect2)/2);"/>
+		</list>
+	</section>
+</section>

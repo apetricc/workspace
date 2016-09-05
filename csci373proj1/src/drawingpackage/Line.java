@@ -2,7 +2,7 @@ package drawingpackage;
 
 import csci348.drawings.Drawing;
 
-public class Line {
+public class Line extends DrawProgram{
 	protected final int startX;
 	protected final int startY;
 	protected final int endX;
@@ -45,14 +45,25 @@ public class Line {
 		double m = (endY - startY)/(endX - startX);
 		double dx = m/width;
 		double dy = m/height;
-		for (int i = startX; i < endX; i+=1) {
-			//draw.showPoint(i, i*m);
-			for(int j = startY; j < endY; j+=1) {
-				Double d = j/m;
-				Integer intVal = (d).intValue();
-				draw.showPoint(intVal,j);
-			}//for j				
-		}//for i 			
+		if (startX <= endX) {
+			for (int i = startX; i < endX; i+=1) {
+				//draw.showPoint(i, i*m);
+				for(int j = startY; j < endY; j+=1) {
+					Double d = j/m;
+					Integer intVal = (d).intValue();
+					draw.showPoint(intVal,j);
+				}//for j				
+			}//for i 			
+		}
+		if (startX > endX) {
+			for (int i = endX; i < startX; i++) {
+				for (int j=startY; j < endY; j++) {
+					Double d = j/m;
+					Integer intVal = (d).intValue();
+					draw.showPoint(intVal,j);
+				}
+			}
+		}
 	}//draw
 		
 	
