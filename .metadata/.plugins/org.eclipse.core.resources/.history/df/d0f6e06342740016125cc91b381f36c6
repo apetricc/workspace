@@ -28,7 +28,7 @@ public class Line extends DrawProgram {
 	 * 
 	 * @param draw
 	 */
-//or get tan of that angle, and an if statement if it goes past a certain angle
+
 	public void draw(Drawing draw) {
 		double width = Math.abs(endX - startX);
 		double height = Math.abs(endY - startY);

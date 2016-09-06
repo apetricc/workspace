@@ -2,14 +2,15 @@ package drawingpackage;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 import csci348.drawings.Drawing;
 
 /**
  * 
  * @author andrew petriccione
- * @contributions had design discussions with Dr. Sheaffer, Kevin D., & Carole S. 
+ * @contributions from Dr. Sheaffer, Kevin D., & Carole S. How do you want them
+ *                to interact with this code, what are you going to expose, and
+ *                which methods will be public
  */
 
 public class DrawProgram {
@@ -28,33 +29,37 @@ public class DrawProgram {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * MAIN METHOD!!
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		Drawing myDrawing = new Drawing();
 		DrawProgram draw = new DrawProgram();
 		HorizontalLine hLine1 = new HorizontalLine(5, 5, 55, 55);
 		VerticalLine vLine1 = new VerticalLine(150, 150, 150, 600);
 		Line testLine2 = new Line(100, 100, 550, 210);
-		//myDrawing.showPoint(50, 350);
+		myDrawing.showPoint(50, 350);
 
 		// ******************************
 		Box testBox = new Box(100, 100, 50, 20);
-		scan.nextLine();
 		testBox.draw(myDrawing, draw);
 		// ******************************
 		
 		Box testBox5 = new Box(200, 10, 25, 25);
-		scan.nextLine();
 		testBox5.draw(myDrawing, draw);
 		testBox.connectBoxes(testBox5, myDrawing);
 		Box testBox6 = new Box(10, 10, 20, 40);
 		testBox6.draw(myDrawing, draw);
-		scan.nextLine();
 		testBox.connectBoxes(testBox6, myDrawing);
 		Box testBox7 = new Box(10, 200, 25, 25);
 		testBox7.draw(myDrawing, draw);
@@ -81,12 +86,10 @@ public class DrawProgram {
 //		Line angleUp = new Line(300, 30, 500, 600);
 //		angleUp.draw(myDrawing);
 //		testBox2.erase(myDrawing);
-		testBox.erase(myDrawing, draw);
 		testBox3.erase(myDrawing, draw);
 		downRight.erase(myDrawing, draw);
-		draw.eraseLast(myDrawing);
 		System.out.println("The diagram array list is this long: "+draw.diagram.size());
-    	//
+    	//draw.eraseLast(myDrawing);
 	}// main
 
 }// DrawProgram class

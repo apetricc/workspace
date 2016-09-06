@@ -141,8 +141,8 @@ public class Box extends DrawProgram {
 		draw.diagram.remove(draw.diagram.indexOf(this));
 		int width = this.width;
 		int height = this.height;
-		int x = this.startX;
-		int y = this.startY;
+		int x = this.getX();
+		int y = this.getY();
 
 		for (int i = x; i <= x + width; i++) {
 			palette.hidePoint(i, y);

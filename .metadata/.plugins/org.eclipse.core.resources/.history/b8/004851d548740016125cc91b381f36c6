@@ -10,6 +10,7 @@ public class Box extends DrawProgram {
 	private int startY;
 	private int height;
 	private int width;
+	private String title;
 	int xConnect1;
 	int yConnect1;
 	int xConnect2;
@@ -22,6 +23,34 @@ public class Box extends DrawProgram {
 		this.startY = startY;
 		this.width = width;
 		this.height = height;
+	}
+
+	public Box getBox() {
+		return this;
+	}
+	
+	public int getX() {
+		return startX;
+	}
+
+	public void setStartX(int startX) {
+		this.startX = startX;
+	}
+
+	public int getY() {
+		return startY;
+	}
+
+	public void setStartY(int startY) {
+		this.startY = startY;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
 	}
 
 	public void draw(Drawing palette, DrawProgram draw) {
@@ -139,10 +168,10 @@ public class Box extends DrawProgram {
 
 	public void erase(Drawing palette, DrawProgram draw) {
 		draw.diagram.remove(draw.diagram.indexOf(this));
-		int width = this.width;
-		int height = this.height;
-		int x = this.startX;
-		int y = this.startY;
+		int width = this.getWidth();
+		int height = this.getHeight();
+		int x = this.getX();
+		int y = this.getY();
 
 		for (int i = x; i <= x + width; i++) {
 			palette.hidePoint(i, y);

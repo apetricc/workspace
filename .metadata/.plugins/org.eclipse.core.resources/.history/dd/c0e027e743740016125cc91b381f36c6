@@ -54,7 +54,6 @@ public class DrawProgram {
 		testBox.connectBoxes(testBox5, myDrawing);
 		Box testBox6 = new Box(10, 10, 20, 40);
 		testBox6.draw(myDrawing, draw);
-		scan.nextLine();
 		testBox.connectBoxes(testBox6, myDrawing);
 		Box testBox7 = new Box(10, 200, 25, 25);
 		testBox7.draw(myDrawing, draw);
