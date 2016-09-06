@@ -1,3 +1,5 @@
 1473013529699	Rename method 'leftAndHorizAdjacent'
 1473013547321	Rename method 'aboveAndVerticallyAdjacent'
 1473013562149	Rename method 'belowAndVerticallyAdjacent'
+1473123798910	Rename local variable 'pallette'
+1473125004502	Rename local variable 'draw'
