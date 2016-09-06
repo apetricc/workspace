@@ -70,22 +70,22 @@ public class Box extends DrawProgram {
 		boolean box1IsRight = (this.startX > box2.startX);
 		boolean box1IsBelow = (this.startY > box2.startY);
 
-		if (box1IsRight && horizontallyAdjacent)
-			right(box2, draw);
 		if (box1IsLeft && horizontallyAdjacent)
 			left(box2, draw);
 		if (box1IsAbove && verticallyAdjacent)
 			above(box2, draw);
 		if (box1IsBelow && verticallyAdjacent)
 			below(box2, draw);
-		if (box1IsLeft && !horizontallyAdjacent)
-			leftAndNotAdjacent(box2, draw);
-//		if (box1IsLeft && !horizontallyAdjacent)
-//			leftAndBelow(box2, draw);
-		if (box1IsRight && !horizontallyAdjacent)
+		if (box1IsRight && horizontallyAdjacent)
+			right(box2, draw);
+		if (box1IsLeft && box1IsAbove)
+			leftAndAbove(box2, draw);
+		if (box1IsLeft && box1IsBelow)
+			leftAndBelow(box2, draw);
+		if (box1IsRight && box1IsAbove)
 			rightAndNotAdjacent(box2, draw);
-//		if (box1IsRight && box1IsBelow)
-//			rightAndNotAdjacent(box2, draw);
+		if (box1IsRight && box1IsBelow)
+			rightAndNotAdjacent(box2, draw);
 
 	}// connectBoxes
 
@@ -153,7 +153,7 @@ public class Box extends DrawProgram {
 
 	}
 
-	private void leftAndNotAdjacent(Box box2, Drawing draw) {
+	private void leftAndAbove(Box box2, Drawing draw) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
