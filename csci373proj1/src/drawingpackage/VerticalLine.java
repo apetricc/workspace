@@ -8,33 +8,45 @@ public class VerticalLine extends Line {
 		super(startX, startY, endX, endY);
 	}
 
+	/**
+	 * draw shows the points of the VerticalLine on which it is called
+	 * 
+	 * @param palette
+	 *            The Drawing within which the VerticalLine is drawn
+	 */
 	@Override
-	public void draw(Drawing draw) {
+	public void draw(Drawing palette) {
 		if (startY == endY)
 			System.out.println("Can't draw vertical line horizontally--use horizontal line.");
 		if (startY < endY) {
 			for (int i = startY; i <= endY; i++) {
-				draw.showPoint(startX, i);
+				palette.showPoint(startX, i);
 			}
 		} // startY<=endY
 		if (startY > endY) {
 			for (int i = endY; i <= startY; i++) {
-				draw.showPoint(startX, i);
+				palette.showPoint(startX, i);
 			}
 		} // startY > endY
 	}// draw
 
-	public void erase(Drawing draw) {
+	/**
+	 * erase hides the VerticalLine object on which it is called
+	 * 
+	 * @param palette
+	 *            The Drawing within which the VerticalLine is erased
+	 */
+	public void erase(Drawing palette) {
 		if (startY == endY)
 			System.out.println("Can't draw vertical line horizontally--use horizontal line.");
 		if (startY < endY) {
 			for (int i = startY; i <= endY; i++) {
-				draw.hidePoint(startX, i);
+				palette.hidePoint(startX, i);
 			}
 		} // startY<=endY
 		if (startY > endY) {
 			for (int i = endY; i <= startY; i++) {
-				draw.hidePoint(startX, i);
+				palette.hidePoint(startX, i);
 			}
 		} // startY > endY
 	}

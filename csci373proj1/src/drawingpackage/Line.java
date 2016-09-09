@@ -15,33 +15,22 @@ public class Line extends DrawProgram {
 		this.endY = endY;
 	}
 
-	// I have a feeling this will need to use slope intercept form somehow, y =
-	// mx + b
-	// m = (y2 - y1)/(x2-x1)
 	/**
-	 * super.paintComponent(g);
+	 * draw shows the points of the Line object in the Drawing passed as a
+	 * parameter
 	 * 
-	 * int linesToDraw = 15; int width = getWidth(); int height = getHeight();
-	 * int number, y, x, dy, dx; x = 0; y = height; number = 15; dx = width /
-	 * number; dy = height / number; for( int i = 1; i < number; i++ ) { x +=
-	 * dx; y -= dy; g.drawLine( 0, 0, y, x );
-	 * 
-	 * @param draw
+	 * @param palette
+	 *            The Drawing object that the line will be shown in.
 	 */
-//or get tan of that angle, and an if statement if it goes past a certain angle
-	public void draw(Drawing draw) {
-		double width = Math.abs(endX - startX);
-		double height = Math.abs(endY - startY);
+	public void draw(Drawing palette) {
 		double m = (endY - startY) / (endX - startX);
-		double dx = m / width;
-		double dy = m / height;
 		if (startX <= endX) {
 			for (int i = startX; i < endX; i += 1) {
 				// draw.showPoint(i, i*m);
 				for (int j = startY; j < endY; j += 1) {
 					Double d = j / m;
 					Integer intVal = (d).intValue();
-					draw.showPoint(intVal, j);
+					palette.showPoint(intVal, j);
 				} // for j
 			} // for i
 		}
@@ -50,14 +39,10 @@ public class Line extends DrawProgram {
 				for (int j = startY; j < endY; j++) {
 					Double d = j / m;
 					Integer intVal = (d).intValue();
-					draw.showPoint(intVal, j);
+					palette.showPoint(intVal, j);
 				}
 			}
 		}
 	}// draw
-
-	public void erase() {
-
-	}
 
 }

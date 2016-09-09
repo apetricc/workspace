@@ -1,0 +1,16 @@
+package drawingpackage;
+
+public class Line extends DrawProgram {
+	protected final int startX;
+	protected final int startY;
+	protected final int endX;
+	protected final int endY;
+
+	public Line(int startX, int startY, int endX, int endY) {
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+	}
+
+}//Line

@@ -8,33 +8,45 @@ public class HorizontalLine extends Line {
 		super(startX, startY, endX, endY);
 	}
 
+	/**
+	 * draw shows the points of the HorizontalLine on which it is called
+	 * 
+	 * @param palette
+	 *            The Drawing within which the HorizontalLine is drawn
+	 */
 	@Override
-	public void draw(Drawing draw) {
+	public void draw(Drawing palette) {
 		if (startX == endX)
 			System.out.println("Can't draw horizontal line vertically--use vertical line.");
 		if (startX < endX) {
 			for (int i = startX; i <= endX; i++) {
-				draw.showPoint(i, startY);
+				palette.showPoint(i, startY);
 			}
 		} // startX < endX
 		if (startX > endX) {
 			for (int i = endX; i <= startX; i++) {
-				draw.showPoint(i, startY);
+				palette.showPoint(i, startY);
 			}
 		} // startX > endX
 	}// draw
 
-	public void erase(Drawing draw) {
+	/**
+	 * erase hides the points of the HorizontalLine on which it is called
+	 * 
+	 * @param palette
+	 *            The Drawing within which the HorizontalLine is erased
+	 */
+	public void erase(Drawing palette) {
 		if (startX == endX)
 			System.out.println("Can't draw horizontal line vertically--use vertical line.");
 		if (startX < endX) {
 			for (int i = startX; i <= endX; i++) {
-				draw.hidePoint(i, startY);
+				palette.hidePoint(i, startY);
 			}
 		} // startX < endX
 		if (startX > endX) {
 			for (int i = endX; i <= startX; i++) {
-				draw.hidePoint(i, startY);
+				palette.hidePoint(i, startY);
 			}
 		} // startX > endX
 	}

@@ -1,7 +1,5 @@
 package drawingpackage;
 
-import java.util.ArrayList;
-
 import csci348.drawings.Drawing;
 
 public class Box extends DrawProgram {
@@ -17,13 +15,34 @@ public class Box extends DrawProgram {
 	int xJoint;
 	int yJoint;
 
+	/**
+	 * Public constructor for the Box class
+	 * 
+	 * @param startX
+	 *            the x coordinate of the upper left corner of the Box
+	 * @param startY
+	 *            the y coordinate of the upper left corner of the Box
+	 * @param width
+	 *            the width of the Box
+	 * @param height
+	 *            the height of the Box
+	 */
 	public Box(int startX, int startY, int width, int height) {
 		this.startX = startX;
 		this.startY = startY;
 		this.width = width;
 		this.height = height;
-	}//Boxprotein
+	}// Box
 
+	/**
+	 * draw shows the points of the Box object it is called on and adds the Box
+	 * object to an ArrayList in the DrawProgram it is passed as a parameter
+	 * 
+	 * @param palette
+	 *            the Drawing within which the Box will appear
+	 * @param draw
+	 *            the DrawProgram within which the Box will appear
+	 */
 	public void draw(Drawing palette, DrawProgram draw) {
 		HorizontalLine hLine1 = new HorizontalLine(startX, startY, startX + width, startY);
 		HorizontalLine hLine2 = new HorizontalLine(startX, startY + height, startX + width, startY + height);
@@ -34,9 +53,17 @@ public class Box extends DrawProgram {
 		vLine1.draw(palette);
 		vLine2.draw(palette);
 		draw.diagram.add(this);
-	}//draw
+	}// draw
 
-	public void connectBoxes(Box box2, Drawing draw) {
+	/**
+	 * connectBoxes draws connecting lines between two Box objects
+	 * 
+	 * @param box2
+	 *            the Box to connect to from the Box connectBoxes is called on
+	 * @param palette
+	 *            the Drawing that the Box objects are in
+	 */
+	public void connectBoxes(Box box2, Drawing palette) {
 		boolean horizontallyAdjacent = (this.startY == box2.startY);
 		boolean verticallyAdjacent = (this.startX == box2.startX);
 		boolean box1IsAbove = (this.startY < box2.startY);
@@ -45,20 +72,20 @@ public class Box extends DrawProgram {
 		boolean box1IsBelow = (this.startY > box2.startY);
 
 		if (box1IsRight && horizontallyAdjacent)
-			right(box2, draw);
+			right(box2, palette);
 		if (box1IsLeft && horizontallyAdjacent)
-			left(box2, draw);
+			left(box2, palette);
 		if (box1IsAbove && verticallyAdjacent)
-			above(box2, draw);
+			above(box2, palette);
 		if (box1IsBelow && verticallyAdjacent)
-			below(box2, draw);
+			below(box2, palette);
 		if (box1IsLeft && !horizontallyAdjacent)
-			leftAndNotAdjacent(box2, draw);
+			leftAndNotAdjacent(box2, palette);
 		if (box1IsRight && !horizontallyAdjacent)
-			rightAndNotAdjacent(box2, draw);
+			rightAndNotAdjacent(box2, palette);
 	}// connectBoxes
 
-	private void rightAndNotAdjacent(Box box2, Drawing draw) {
+	private void rightAndNotAdjacent(Box box2, Drawing palette) {
 		xConnect1 = this.startX;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX + box2.width;
@@ -67,62 +94,12 @@ public class Box extends DrawProgram {
 		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xJoint, yConnect1);
 		VerticalLine vLine1 = new VerticalLine(xJoint, yConnect1, xJoint, yConnect2);
 		HorizontalLine hLine2 = new HorizontalLine(xJoint, yConnect2, xConnect2, yConnect2);
-		vLine1.draw(draw);
-		hLine1.draw(draw);
-		hLine2.draw(draw);
-	}//rightAndNotAdjacent
+		vLine1.draw(palette);
+		hLine1.draw(palette);
+		hLine2.draw(palette);
+	}// rightAndNotAdjacent
 
-	private void rightAndAbove(Box box2, Drawing draw) {
-		xConnect1 = this.startX;
-		yConnect1 = this.startY + this.height / 2;
-		xConnect2 = box2.startX + box2.width;
-		yConnect2 = box2.startY + box2.height / 2;
-		xJoint = xConnect1 - Math.abs(xConnect2 - xConnect1) / 2;
-		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xJoint, yConnect1);
-		VerticalLine vLine1 = new VerticalLine(xJoint, yConnect1, xJoint, yConnect2);
-		HorizontalLine hLine2 = new HorizontalLine(xJoint, yConnect2, xConnect2, yConnect2);
-		vLine1.draw(draw);
-		hLine1.draw(draw);
-		hLine2.draw(draw);
-
-	}//rightAndAbove
-
-	private void right(Box box2, Drawing draw) {
-		xConnect1 = this.startX;
-		yConnect1 = this.startY + this.height / 2;
-		xConnect2 = box2.startX + box2.width;
-		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
-		hLine1.draw(draw);
-	}//right
-
-	private void left(Box box2, Drawing draw) {
-		xConnect1 = this.startX + this.width;
-		yConnect1 = this.startY + this.height / 2;
-		xConnect2 = box2.startX;
-		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
-		hLine1.draw(draw);
-	}//left
-
-	private void above(Box box2, Drawing draw) {
-		xConnect1 = this.startX + this.width / 2;
-		yConnect1 = this.startY + this.height;
-		yConnect2 = box2.startY;
-		VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect1, yConnect2);
-		vLine1.draw(draw);
-
-	}//above
-
-	private void below(Box box2, Drawing draw) {
-		xConnect1 = this.startX + this.width / 2;
-		yConnect1 = this.startY;
-		xConnect2 = box2.startX + box2.width / 2;
-		yConnect2 = box2.startY + height;
-		VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect2, yConnect2);
-		vLine1.draw(draw);
-
-	}//below
-
-	private void leftAndNotAdjacent(Box box2, Drawing draw) {
+	private void leftAndNotAdjacent(Box box2, Drawing palette) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
@@ -131,11 +108,54 @@ public class Box extends DrawProgram {
 		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xJoint, yConnect1);
 		VerticalLine vLine1 = new VerticalLine(xJoint, yConnect1, xJoint, yConnect2);
 		HorizontalLine hLine2 = new HorizontalLine(xJoint, yConnect2, xConnect2, yConnect2);
-		vLine1.draw(draw);
-		hLine1.draw(draw);
-		hLine2.draw(draw);
-	}//leftAndNotAdjacent
+		vLine1.draw(palette);
+		hLine1.draw(palette);
+		hLine2.draw(palette);
+	}// leftAndNotAdjacent
 
+	private void right(Box box2, Drawing palette) {
+		xConnect1 = this.startX;
+		yConnect1 = this.startY + this.height / 2;
+		xConnect2 = box2.startX + box2.width;
+		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
+		hLine1.draw(palette);
+	}// right
+
+	private void left(Box box2, Drawing palette) {
+		xConnect1 = this.startX + this.width;
+		yConnect1 = this.startY + this.height / 2;
+		xConnect2 = box2.startX;
+		HorizontalLine hLine1 = new HorizontalLine(xConnect1, yConnect1, xConnect2, yConnect1);
+		hLine1.draw(palette);
+	}// left
+
+	private void above(Box box2, Drawing palette) {
+		xConnect1 = this.startX + this.width / 2;
+		yConnect1 = this.startY + this.height;
+		yConnect2 = box2.startY;
+		VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect1, yConnect2);
+		vLine1.draw(palette);
+
+	}// above
+
+	private void below(Box box2, Drawing palette) {
+		xConnect1 = this.startX + this.width / 2;
+		yConnect1 = this.startY;
+		xConnect2 = box2.startX + box2.width / 2;
+		yConnect2 = box2.startY + height;
+		VerticalLine vLine1 = new VerticalLine(xConnect1, yConnect1, xConnect2, yConnect2);
+		vLine1.draw(palette);
+
+	}// below
+
+	/**
+	 * erase hides the points of the Box object it is called on
+	 * 
+	 * @param palette
+	 *            the Drawing within which the Box will be erased
+	 * @param draw
+	 *            the DrawProgram within which the Box will be erased
+	 */
 	public void erase(Drawing palette, DrawProgram draw) {
 		draw.diagram.remove(draw.diagram.indexOf(this));
 		int width = this.width;
@@ -146,10 +166,10 @@ public class Box extends DrawProgram {
 		for (int i = x; i <= x + width; i++) {
 			palette.hidePoint(i, y);
 			palette.hidePoint(i, y + height);
-		}//for i
+		} // for i
 		for (int j = y; j <= y + height; j++) {
 			palette.hidePoint(x, j);
 			palette.hidePoint(x + width, j);
-		}//for j
-	}//erase
+		} // for j
+	}// erase
 }// Box
