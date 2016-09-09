@@ -6,7 +6,7 @@ import java.util.Scanner;
 import csci348.drawings.Drawing;
 
 /**
- * CSCI 373 Fall 2016 Dr. Sheaffer Project 1
+ * 
  * @author Andrew Petriccione
  * @contributions Had design discussions with Dr. Sheaffer, Kevin D., & Carole S.
  */
