@@ -1,0 +1,16 @@
+public class SimpleString {
+	char[] contents;
+
+
+	public boolean contains(char c) {
+		for (int i = 0; i < sizeOf(this); i++) {
+			
+		}
+	}
+
+
+	public SimpleString(char[] contents) {
+		super();
+		this.contents = contents;
+	}
+}

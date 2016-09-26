@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;SimpleStringHW2/src/SimpleStringPackage&apos;&#x0A;- Original project: &apos;SimpleStringHW2&apos;&#x0A;- Destination element: &apos;SimpleStringHW2/src/SimpleStringPackage&apos;&#x0A;- Original elements:&#x0A;     SimpleString.java&#x0A;     Tester.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;SimpleStringPackage" element1="/src&lt;{SimpleString.java" element2="/src&lt;{Tester.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1474840800332" units="2" version="1.0"/>
+</session>
