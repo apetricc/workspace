@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesterTest" project="SimpleStringHW2" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="SimpleStringPackage.TesterTest" time="0.0">
+    <testcase name="testContains" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testCharAt" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIndexOf" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIsEmpty" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+  </testsuite>
+</testrun>
