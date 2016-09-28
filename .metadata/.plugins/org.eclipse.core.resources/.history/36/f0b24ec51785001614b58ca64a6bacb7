@@ -1,13 +1,5 @@
-/**
- * SimpleString Test Driven Development
- * Andrew Petriccione
- * csci 373 Fall 2016
- * Dr. Sheaffer 
- */
-
-
-
 package SimpleStringPackage;
+
 import java.util.Arrays;
 
 import org.junit.Before;
@@ -16,11 +8,12 @@ public class SimpleString {
 	char[] contents;
 	private int length;
 
+	// need java docs
 	/**
 	 * SimpleString is an array of chars
 	 * 
 	 * @param contents
-	 *            the array of chars that makes the SimpleString.
+	 *            the array of chars that makes the SimpleString
 	 */
 	public SimpleString(char[] contents) {
 		if (contents.length != 0) {
@@ -31,25 +24,41 @@ public class SimpleString {
 	}
 
 	/**
-	 * charAt returns the character at the index specified.
+	 * Define a character array instance variable to hold the contents of your
+	 * SimpleString. Write a constructor that takes an array of characters as
+	 * its parameter. Copy the actual argument into the above instance variable.
+	 * Methods: charAt(int index): returns the character at the given index.
+	 * contains(char c): returns true if the string contains the character c,
+	 * false otherwise.
 	 * 
-	 * @param index
-	 *            the index of the char value.
-	 * @return the char value at the specified index of this SimpleString. The
-	 *         first char value is at index 0.
+	 * indexOf(char c): returns the index of the first occurrence of the
+	 * character c in the string, -1 if the character does not appear in the
+	 * string.
+	 * 
+	 * isEmpty(): returns true if the string contains no characters, false
+	 * otherwise.
+	 * 
+	 * length(): returns the number of characters in the string.
+	 * 
+	 * concat(SimpleString s): returns a new SimpleString that consists of a
+	 * copy of this SimpleString with a copy of s concatenated to the end.
+	 * 
+	 * substring(int startIndex, int endIndex): returns a new SimpleString that
+	 * is a copy of the portion of this SimpleString that starts at index
+	 * startIndex and ends at index endIndex - 1.
+	 * 
+	 * equals(Object o): returns true if this SimpleString is equal to o.
+	 * 
+	 * hashCode(): returns a hash code for this SimpleString.
+	 * 
+	 * @param c
+	 * @return
 	 */
+
 	public char charAt(int index) {
 		return this.contents[index];
 	}
 
-	/**
-	 * Returns true if and only if this SimpleString contains the specified
-	 * char.
-	 * 
-	 * @param c
-	 *            the sequence to search for
-	 * @return true if this SimpleString contains c, false otherwise
-	 */
 	public boolean contains(char c) {
 		for (int i = 0; i < this.length; i++) {
 			if (this.contents[i] == c) {
@@ -59,16 +68,6 @@ public class SimpleString {
 		return false;
 	}// contains
 
-	/**
-	 * Returns the index within this SimpleString of the first occurrence of the
-	 * specified character.
-	 * 
-	 * @param c
-	 *            a character
-	 * @return the index of the first occurrence of the character in the
-	 *         character sequence represented by this object, or -1 if the
-	 *         character does not occur.
-	 */
 	public int indexOf(char c) {
 		for (int i = 0; i < this.length; i++) {
 			if (this.contents[i] == c) {
@@ -78,36 +77,15 @@ public class SimpleString {
 		return -1;
 	}// indexOf
 
-	/**
-	 * Returns true if, and only if, length() is 0.
-	 * 
-	 * @return true if length() is 0, otherwise false
-	 */
 	public boolean isEmpty() {
 		if (this.length == 0)
 			return true;
 		return false;
 	}// isEmpty
 
-	/**
-	 * Returns the length of this SimpleString. The length is equal to the
-	 * number of chars in the SimpleString.
-	 * 
-	 * @return Returns the length of this SimpleString.
-	 */
 	public int length() {
 		return this.length;
 	}
-
-	/**
-	 * Concatenates the specified SimpleString to the end of this SimpleString.
-	 * 
-	 * @param s
-	 *            the SimpleString that is concatenated to the end of this
-	 *            SimpleString.
-	 * @return a SimpleString that represents the concatenation of this object's
-	 *         characters followed by the SimpleString argument's characters.
-	 */
 
 	public SimpleString concat(SimpleString s) {
 		char[] letters = new char[this.length + s.length];
@@ -123,17 +101,22 @@ public class SimpleString {
 		return combined;
 	}
 
+	public String printConcat(SimpleString second) {
+		String result = "";
+		for (int i = 0; i < (this.length() + second.length()); i++) {
+			result += (this.concat(second).charAt(i));
+		}
+		return result;
+	}// printConcat
+
 	/**
-	 * Returns a SimpleString that is a substring of this SimpleString. The
-	 * substring begins at the specified beginIndex and extends to the character
-	 * at index endIndex - 1. Thus the length of the substring is
-	 * endIndex-beginIndex.
+	 * substring(int startIndex, int endIndex): returns a new SimpleString that
+	 * is a copy of the portion of this SimpleString that starts at index
+	 * startIndex and ends at index endIndex - 1.
 	 * 
 	 * @param startIndex
-	 *            - the beginning index, inclusive.
 	 * @param endIndex
-	 *            - the ending index, exclusive.
-	 * @return the specified substring.
+	 * @return
 	 */
 	public SimpleString substring(int startIndex, int endIndex) {
 		SimpleString substring;
@@ -145,12 +128,6 @@ public class SimpleString {
 		return substring;
 	}// substring
 
-	/**
-	 * Returns a hash code for this string.
-	 * 
-	 * @override hashCode in class Object
-	 * @return a hash code value for this object.
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -160,16 +137,6 @@ public class SimpleString {
 		return result;
 	}
 
-	/**
-	 * Compares this SimpleString to the specified object. The result is true if
-	 * and only if the argument is not null and is a SimpleString object that
-	 * represents the same sequence of characters as this object.
-	 * 
-	 * @override equals in class Object
-	 * @obj - The object to compare this SimpleString against
-	 * @return true if the given object represents a SimpleString equivalent to
-	 *         this SimpleString, false otherwise
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -198,9 +165,8 @@ public class SimpleString {
 		emptyString = new SimpleString(noChars);
 		addOnString = new SimpleString(addOnWord);
 		SimpleString testString2 = new SimpleString(chars2);
-		System.out.println("Teststring and testString2 should be equal and have the same hash, are they equal: "
-				+ testString.equals(testString2) + " what are their hashes?: " + testString.hashCode()
-				+ " and testString2: " + testString2.hashCode());
+		System.out.println("Teststring and testString2 should be equal and have the same hash, are they equal: " + testString.equals(testString2) +  " what are their hashes?: " + testString.hashCode() +" and testString2: "+testString2.hashCode());
+		System.out.println(testString.printConcat(addOnString));
 		System.out.println(testString.equals(testString));
 		System.out.println(testString.equals(emptyString));
 		System.out.println(testString.hashCode());

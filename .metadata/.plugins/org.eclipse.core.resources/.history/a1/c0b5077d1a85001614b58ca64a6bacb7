@@ -1,12 +1,10 @@
-
-
 /**
  * SimpleString Test Driven Development
  * Andrew Petriccione
  * csci 373 Fall 2016
  * Dr. Sheaffer 
  */
-package SimpleStringPackage;
+
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;

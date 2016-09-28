@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesterTest" project="SimpleStringHW2" tests="20" started="20" failures="0" errors="0" ignored="0">
+  <testsuite name="SimpleStringPackage.TesterTest" time="0.001">
+    <testcase name="testFirstLetterConcat" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testContainsWord" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testLastChar" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testSubstringLength" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testConcatLength" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testSimpleStringContents" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIndexOfStartOfCharArray" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIsNotEmpty" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testFirstChar" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testHashCode" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testFirstCharOfSubstring" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testLastCharOfSubstring" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testNoLength" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testEquals" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIndexOfEndOfCharArray" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testShouldNotContain" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testLength" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testNotEquals" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testIsEmpty" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+    <testcase name="testLastLetterConcat" classname="SimpleStringPackage.TesterTest" time="0.0"/>
+  </testsuite>
+</testrun>
