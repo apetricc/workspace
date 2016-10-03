@@ -1,0 +1,37 @@
+package drawings2;
+
+import csci348.drawings.Drawing;
+import drawings2.SimpleDrawProgram;
+import drawings2.HorizontalLine;
+import drawings2.VerticalLine;
+
+public class Triangle extends SimpleDrawProgram{
+	
+	private int startX;
+	private int startY;
+	private int height;
+	private int width;
+	public Triangle(int startX, int startY, int height, int width) {
+		super();
+		this.startX = startX;
+		this.startY = startY;
+		this.height = height;
+		this.width = width;
+	}
+
+	
+	
+	
+	public void draw(Drawing palette, SimpleDrawProgram draw) {
+		HorizontalLine hLine1 = new HorizontalLine(startX, startY, startX + width, startY);
+		HorizontalLine hLine2 = new HorizontalLine(startX, startY + height, startX + width, startY + height);
+		hLine1.draw(palette);
+		hLine2.draw(palette);
+		VerticalLine vLine1 = new VerticalLine(startX, startY, startX, startY + height);
+		VerticalLine vLine2 = new VerticalLine(startX + width, startY, startX + width, startY + height);
+		vLine1.draw(palette);
+		vLine2.draw(palette);
+		//draw.diagram.add(this);
+	}// draw
+
+}

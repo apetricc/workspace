@@ -1,0 +1,11 @@
+package drawings2;
+
+public class Triangle extends SimpleDrawProgram{
+	
+	private int startX;
+	private int startY;
+	private int height;
+	private int width;
+
+
+}

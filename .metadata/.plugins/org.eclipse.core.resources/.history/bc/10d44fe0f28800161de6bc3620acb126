@@ -1,0 +1,9 @@
+package drawings2;
+
+public class Circle extends SimpleDrawProgram{
+	private int startX;
+	private int startY;
+	private int radius;
+	
+
+}

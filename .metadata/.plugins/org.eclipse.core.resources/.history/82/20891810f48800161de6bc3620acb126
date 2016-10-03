@@ -1,0 +1,40 @@
+package drawings2;
+import csci348.drawings.*;
+public class Circle extends SimpleDrawProgram{
+	public Circle(int startX, int startY, int radius) {
+		super();
+		this.startX = startX;
+		this.startY = startY;
+		this.radius = radius;
+	}
+
+
+	private int startX;
+	private int startY;
+	private int radius;
+	int x;
+	int y;	
+	//radius = sqrt(x^2 + y^2)
+	// if (middle + point <= radius) draw point
+	//if (H = radius) showPoint
+	//if (H=<R && H> R-1) showPoint     <-- n; the width of the line
+	
+	private int h;
+	
+	
+	public void drawCircle(SimpleDrawing palette) {
+		x = startX + radius;
+		y = startY ;
+		x *= x;
+		y*= y;
+		for (int i = startX; i < startX+radius; i++) {
+			for (int j=startY; j< startY+radius; j++) {
+				 
+				if ((Math.sqrt(x+y) < radius)&&(Math.sqrt(x+y) > radius -5)) {
+					palette.showPoint(i,j);
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,17 @@
+package drawings2;
+import csci348.drawings.*;
+public class DiagonalLine extends Line{
+
+	public DiagonalLine(int startX, int startY, int endX, int endY) {
+		super(startX, startY, endX, endY);
+	}
+	
+	//@Override
+	public void draw(SimpleDrawing palette) {
+		for (int i = startX; i < endX; i++) {
+			palette.showPoint(i, i);
+		}
+	}// draw
+	
+	
+}
