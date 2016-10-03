@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/petriccione/csSoftwareEngineering--csci373/classExamples"/>
+		<item value="/Users/petriccione/csSoftwareEngineering--csci373/classExamples/trafficsimulation"/>
+		<item value="/Users/petriccione/Documents/workspace/TrafficSim"/>
+		<item value="/Users/petriccione/Documents/workspace/SimpleStringHW2"/>
+	</list>
+</section>

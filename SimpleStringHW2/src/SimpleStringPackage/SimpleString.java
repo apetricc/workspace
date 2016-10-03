@@ -39,6 +39,8 @@ public class SimpleString {
 	 *         first char value is at index 0.
 	 */
 	public char charAt(int index) {
+		if (index < 0 || index >= contents.length)
+			throw new IndexOutOfBoundsException("index: " + index);
 		return this.contents[index];
 	}
 
@@ -198,6 +200,7 @@ public class SimpleString {
 		emptyString = new SimpleString(noChars);
 		addOnString = new SimpleString(addOnWord);
 		SimpleString testString2 = new SimpleString(chars2);
+		System.out.println("The Substring of word is : " + testString.substring(0, 10));
 		System.out.println("Teststring and testString2 should be equal and have the same hash, are they equal: "
 				+ testString.equals(testString2) + " what are their hashes?: " + testString.hashCode()
 				+ " and testString2: " + testString2.hashCode());

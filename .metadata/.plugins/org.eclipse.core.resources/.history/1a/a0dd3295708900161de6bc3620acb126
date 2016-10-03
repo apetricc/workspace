@@ -1,0 +1,123 @@
+package drawings2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import csci348.drawings.Drawing;
+import csci348.drawings.SimpleDrawing;
+
+/**
+ * CSCI 373 Fall 2016 Dr. Sheaffer Project 1
+ * @author Andrew Petriccione
+ * @contributions Had design discussions with Dr. Sheaffer, Kevin D., & Carole S.
+ */
+
+public class SimpleDrawProgram {
+
+	ArrayList<Box> diagram = new ArrayList<Box>();
+
+	public void eraseLast(Drawing draw) {
+		if (!diagram.isEmpty()) {
+			try {
+				((Box) diagram.get(diagram.size() - 1)).erase(draw, this);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else
+			System.out.println("Diagram array list is empty--no boxes to erase.");
+	}
+
+	/**
+	 * MAIN METHOD!!
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		//Scanner scan = new Scanner(System.in);
+		SimpleDrawing myDrawing = new SimpleDrawing();
+		SimpleDrawProgram draw = new SimpleDrawProgram();
+//		Box testBox = new Box(100, 100, 50, 20);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox.draw(myDrawing, draw);
+//		Box testBox5 = new Box(200, 10, 25, 25);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox5.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox5, myDrawing);
+//		Box testBox6 = new Box(10, 10, 20, 40);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox6.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox6, myDrawing);
+//		Box testBox7 = new Box(10, 200, 25, 25);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox7.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox7, myDrawing);
+//		Box testBox2 = new Box(200, 100, 50, 20);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox2.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox2, myDrawing);
+//		Box testBox3 = new Box(100, 300, 50, 20);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox3.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox3, myDrawing);
+//		Box testBox4 = new Box(100, 10, 50, 20);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		testBox4.draw(myDrawing, draw);
+//		testBox.connectBoxes(testBox4, myDrawing);
+//		Box anotherBox = new Box(10, 100, 25, 25);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		anotherBox.draw(myDrawing, draw);
+//		testBox.connectBoxes(anotherBox, myDrawing);
+//		testBox.connectBoxes(anotherBox, myDrawing);
+//		Box downRight = new Box(200, 300, 25, 25);
+//		System.out.println("Press enter to draw.");
+//		scan.nextLine();
+//		downRight.draw(myDrawing, draw);
+//		testBox.connectBoxes(downRight, myDrawing);
+//		System.out.println("Press enter to erase.");
+//		scan.nextLine();
+//		testBox.erase(myDrawing, draw);
+//		System.out.println("Press enter to erase.");
+//		scan.nextLine();
+//		testBox3.erase(myDrawing, draw);
+//		System.out.println("Press enter to erase.");
+//		scan.nextLine();
+//		downRight.erase(myDrawing, draw);
+//		System.out.println("Press enter to erase the last box drawn.");
+//		scan.nextLine();
+//		draw.eraseLast(myDrawing);
+//		try {
+//			System.out.println("Redrawing first Box.\n");
+//			Thread.sleep(3000);
+//			testBox.draw(myDrawing, draw);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			System.out.println("Redrawing lower right Box.\n");
+//			Thread.sleep(3000);
+//			downRight.draw(myDrawing, draw);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		System.out.println("This is the end of the DrawProgram demonstration.  Goodbye. ");
+//		scan.close();
+
+		DiagonalLine newLine = new DiagonalLine(0, 600, 300, 0);
+		//newLine.drawUp(myDrawing);
+		Circle newCircle = new Circle(400, 400, 55);
+		newCircle.drawCircle(myDrawing);
+		Triangle triangle = new Triangle(300, 300, 50, 50);
+		triangle.draw(myDrawing, draw);
+		
+		
+	}// main
+
+}// DrawProgram class

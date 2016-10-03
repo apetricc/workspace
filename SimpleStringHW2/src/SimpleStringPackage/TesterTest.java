@@ -41,8 +41,8 @@ public class TesterTest {
 			testString.charAt(chars.length);
 			fail("Tried to pull a charAt index out of bounds");
 
-		} catch (ArrayIndexOutOfBoundsException e) {
-			assertTrue("Array out of bounds here", true);
+		} catch (IndexOutOfBoundsException e) {
+			assertTrue("Index out of bounds here", true);
 		}
 	}// testSimpleStringContents
 
