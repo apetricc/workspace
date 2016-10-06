@@ -123,13 +123,13 @@ public class SimpleDrawProgram {
 		 */
 		
 		
-		DiagonalLine dLine1 = new DiagonalLine(0, 300, 350, 0);
-		dLine1.drawUp(myDrawing);
-		Circle newCircle = new Circle(400, 400, 20);
-		newCircle.drawCircle(myDrawing);
-		Triangle triangle = new Triangle(300, 300, 50, 50);
-		triangle.draw(myDrawing, draw);
-		
+		DiagonalLine dLine1 = new DiagonalLine(300, 300, 300, 450);
+		dLine1.drawBres(myDrawing);
+//		Circle newCircle = new Circle(400, 400, 20);
+//		newCircle.drawCircle(myDrawing);
+//		Triangle triangle = new Triangle(300, 300, 50, 50);
+//		triangle.draw(myDrawing, draw);
+//		
 		
 	}// main
 
