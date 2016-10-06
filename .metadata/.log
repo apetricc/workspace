@@ -149,3 +149,17 @@ org.eclipse.core.runtime.CoreException: The class file is not on the classpath
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 !SUBENTRY 2 org.eclipse.jdt.ui 4 995 2016-09-28 18:47:13.588
 !MESSAGE The class file is not on the classpath
+!SESSION 2016-10-01 13:11:47.608 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_66-ea
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/petriccione/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/petriccione/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 2 2016-10-06 10:48:25.012
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-10-06 10:48:25.012
+!MESSAGE The project description file (.project) for 'classExamples' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-10-06 10:48:25.012
+!MESSAGE The project description file (.project) for 'trafficsimulation' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
