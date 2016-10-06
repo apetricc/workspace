@@ -1,0 +1,81 @@
+package drawings2;
+import csci348.drawings.*;
+public class DiagonalLine extends Line{
+
+	public DiagonalLine(int startX, int startY, int endX, int endY) {
+		super(startX, startY, endX, endY);
+	}
+	int length = Math.abs(endX - startX);
+	//@Override
+	public void drawDown(SimpleDrawing palette) {
+		for (int i = startX; i < endX; i++) {
+			palette.showPoint(i, i);
+		}
+	}// drawDown
+	
+	public void drawUp(SimpleDrawing palette) {
+		int y;
+		int x;
+
+		for (int i = startX; i < endX; i++) {
+				x = i;
+				y = startY - i;
+				palette.showPoint(i, startY-i);
+				System.out.println("X is: " + x + " and Y is: " + y);
+			}
+	}// drawUp
+	
+	public void drawAlg(SimpleDrawing palette) {
+		/*
+		 * Step 1 − Get the input of two end points (X0,Y0)(X0,Y0) and (X1,Y1)(X1,Y1).
+
+			Step 2 − Calculate the difference between two end points.
+		 */
+		int x = startX;
+		int y = startY;
+		float xIncrement;
+		float yIncrement;
+		int dx = endX - startX;
+		int dy = endY - startY;
+		int steps;
+		/*
+		 *Step 3 − Based on the calculated difference in step-2, you need to identify the number of steps to put pixel. If dx > dy, then you need more steps in x coordinate; otherwise in y coordinate. 
+		 */
+		if (dx > dy)  steps = Math.abs(dx);
+		else   steps = Math.abs(dy);
+		
+		/*
+		 * Step 4 − Calculate the increment in x coordinate and y coordinate.
+		 */
+	if (dy < 0) {
+		xIncrement = (dx / (float)steps)/2;
+		yIncrement = dy / (float)steps;
+	}else {
+		xIncrement = dx / (float)steps;
+		yIncrement = dx / (float) steps;
+	}
+//		xIncrement = dx / (float) steps;
+//		yIncrement = dy / (float) steps;
+		
+		/*
+		 * Step 5 − Put the pixel by successfully incrementing x and y coordinates accordingly and complete the drawing of the line.
+		 */
+		for(int v=0; v < steps; v++)
+		{
+		   x += xIncrement;
+		   y += yIncrement;
+		   palette.showPoint(x, y);
+		}
+	}
+			
+}
+	
+	
+//	public void drawUp(SimpleDrawing palette) {
+//		
+//		for (int i = startX; i < startX+length; i++) {
+//				palette.showPoint(i, startY-i);
+//			}
+//	}// drawUp	
+//	
+//}

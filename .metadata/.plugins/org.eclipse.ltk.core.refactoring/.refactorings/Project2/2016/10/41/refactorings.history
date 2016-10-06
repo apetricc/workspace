@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;drawings2.DrawProgram&apos; to &apos;SimpleDrawProgram&apos;&#x0A;- Original project: &apos;Project2&apos;&#x0A;- Original element: &apos;drawings2.DrawProgram&apos;&#x0A;- Renamed element: &apos;drawings2.SimpleDrawProgram&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DrawProgram&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;drawings2{DrawProgram.java[DrawProgram" matchStrategy="1" name="SimpleDrawProgram" qualified="false" references="true" similarDeclarations="false" stamp="1475440812182" textual="false" version="1.0"/>
+</session>

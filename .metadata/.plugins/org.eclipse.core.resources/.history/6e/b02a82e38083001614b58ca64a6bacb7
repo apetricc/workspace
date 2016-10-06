@@ -1,0 +1,82 @@
+package SimpleStringPackage;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class TesterTest {
+
+	char[] chars = {'w', 'o', 'r', 'd'};
+	char[] noChars = {};
+	SimpleString testString;
+	SimpleString emptyString;
+	//SimpleString testString = new SimpleString(chars);
+	
+	@Before
+	public void setUp() {
+		 testString = new SimpleString(chars);
+			emptyString = new SimpleString(noChars);
+	}
+	
+
+	@Test
+	public void testCharAt() {
+
+		assertEquals(testString.charAt(0), 'w');
+		assertEquals(testString.charAt(1), 'o');
+		assertEquals(testString.charAt(2), 'r');
+		assertEquals(testString.charAt(3), 'd');
+		try{
+			testString.charAt(chars.length);
+			fail("Tried to pull a charAt index out of bounds");
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			assertTrue("Array out of bounds here",true);
+		}
+	}//testCharAt
+	
+	
+	
+	@Test
+	public void testContains() {
+		assertEquals(true,testString.contains('w'));
+		assertEquals(testString.contains('o'),true);
+		assertEquals(testString.contains('r'),true);
+		assertEquals(testString.contains('d'),true);
+		assertEquals(testString.contains('z'),false);
+		assertEquals(testString.contains('1'), false);
+		
+	}
+	
+	@Test
+	public void testIndexOf() {
+		assertEquals(testString.indexOf('w'), 0);
+		assertEquals(testString.indexOf('o'), 1);
+		assertEquals(testString.indexOf('r'), 2);
+		assertEquals(testString.indexOf('d'), 3);		
+	}
+	/**
+	 * isEmpty(): returns true if the string contains no characters, false otherwise.
+
+length(): returns the number of characters in the string.
+
+concat(SimpleString s): returns a new SimpleString that consists of a copy of this SimpleString with a copy of s concatenated to the end.
+
+substring(int startIndex, int endIndex): returns a new SimpleString that is a copy of the portion of this SimpleString that starts at index startIndex and ends at index endIndex - 1.
+
+equals(Object o): returns true if this SimpleString is equal to o.
+
+hashCode(): returns a hash code for this SimpleString.
+expected, actual
+	 */
+	@Test
+	public void testIsEmpty() {
+		assertEquals( true, emptyString);
+	}
+	
+
+}
