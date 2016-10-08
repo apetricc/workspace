@@ -1,0 +1,9 @@
+package drawings2;
+
+public class Parallelogram {
+
+	public Parallelogram() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

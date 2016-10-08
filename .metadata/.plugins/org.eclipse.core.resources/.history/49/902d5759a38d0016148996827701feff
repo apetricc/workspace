@@ -51,8 +51,6 @@ public class Arrow extends SimpleDrawProgram {
 	    }
 	    
 	    
-	    
-	    
 	    if (endY < startY){
 	    	Triangle pointer = new Triangle(endX-6, endY,12,12);
 	    	pointer.drawUpTriangle(palette);
@@ -69,8 +67,6 @@ public class Arrow extends SimpleDrawProgram {
 	    	Triangle pointer = new Triangle(endX, endY + 6, 12, 12);
 	    	pointer.drawRight(palette);
 	    }
-	    
-	    
 	}//draw
 	
 

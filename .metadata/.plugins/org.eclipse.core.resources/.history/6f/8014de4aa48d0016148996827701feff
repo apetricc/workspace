@@ -9,12 +9,16 @@ public class Triangle extends SimpleDrawProgram{
 	private int startY;
 	private int height;
 	private int width;
+	private int endX;
+	private int endY;
 	
 	public Triangle(int startX, int startY, int height, int width) {
 		this.startX = startX;
 		this.startY = startY;
 		this.height = height;
 		this.width = width;
+		this.endX = startX + width;
+		this.endY = startY - height;
 	}
 /*
  * //	public Line(int startX, int startY, int endX, int endY) 

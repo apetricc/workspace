@@ -83,14 +83,7 @@ public class SimpleDrawProgram {
 		Arrow arrow1 = new Arrow(300, 300, 250, 300);
 		arrow1.draw(palette);
 		
-		Arrow upArrow = new Arrow(300, 300, 300, 250);
-		upArrow.draw(palette);
 		
-		Arrow downArrow = new Arrow(300, 300, 300, 450);
-		downArrow.draw(palette);
-		
-		Arrow rightArrow = new Arrow(300, 300, 400, 300);
-		rightArrow.draw(palette);
 		
 		
 		
