@@ -2,8 +2,6 @@ package drawings2;
 
 import csci348.drawings.SimpleDrawing;
 import drawings2.SimpleDrawProgram;
-import drawings2.HorizontalLine;
-import drawings2.VerticalLine;
 
 public class Triangle extends SimpleDrawProgram{
 	
@@ -22,26 +20,71 @@ public class Triangle extends SimpleDrawProgram{
 		this.endX = startX + width;
 		this.endY = startY - height;
 	}
+/*
+ * //	public Line(int startX, int startY, int endX, int endY) 
+		Triangle newTriangle = new Triangle(300, 300, 50,75 );
+ */
+	public void drawDownTriangle(SimpleDrawing palette) {
+		int aX = startX;
+		int aY = startY;
+		int bX = startX + width/2;
+		int bY = startY + height;
+		int cX = startX + width;
+		int cY = startY;
+		Line line1 = new Line(aX, aY, bX, bY);
+		Line line2 = new Line(bX, bY, cX, cY);
+		Line line3 = new Line(aX, aY, cX, cY);
+		line1.drawBres(palette);
+		line2.drawBres(palette);
+		line3.drawBres(palette);
+	}// drawDownTriangle
 
+	/**
+	 * drawUpTriangle draws a Triangle object pointing upwards on the SimpleDrawing window
+	 * @param palette the SimpleDrawing where the Triangle will be drawn
+	 * @param draw
+	 */
+	public void drawUpTriangle(SimpleDrawing palette) {
+		int aX = startX;
+		int aY = startY;
+		int bX = startX + width/2;
+		int bY = startY - height;
+		int cX = startX + width;
+		int cY = startY;
+		Line line1 = new Line(aX, aY, bX, bY);
+		Line line2 = new Line(bX, bY, cX, cY);
+		Line line3 = new Line(aX, aY, cX, cY);
+		line1.drawBres(palette);
+		line2.drawBres(palette);
+		line3.drawBres(palette);
+	}// drawUpTriangle
 	
-	//triangle constructor: //Triangle triangle = new Triangle(300, 300, 50, 50);
-
-//drawUp method:	
-//public void drawUp(SimpleDrawing palette) {
-//		
-//		for (int i = startX; i < endX; i++) {
-//				palette.showPoint(i, startY-i);
-//			}
-//	}// drawUp
-	
-	public void draw(SimpleDrawing palette, SimpleDrawProgram draw) {
-		HorizontalLine hLine1 = new HorizontalLine(startX, startY, startX + width, startY);
-		hLine1.draw(palette);
-		DiagonalLine dLine1 = new DiagonalLine(startX, startY, startX + width/2, startY);
-		dLine1.drawDown(palette);
-		DiagonalLine dLine2 = new DiagonalLine(startX, startY, endX, endY);
-		dLine2.drawUp(palette);
-		//draw.diagram.add(this);
-	}// draw
-
+	public void drawLeft(SimpleDrawing palette) {
+		int aX = startX;
+		int aY = startY;
+		int bX = startX - width;
+		int bY = startY - height/2;
+		int cX = startX;
+		int cY = startY - height;
+		Line line1 = new Line(aX, aY, bX, bY);
+		Line line2 = new Line(bX, bY, cX, cY);
+		Line line3 = new Line(aX, aY, cX, cY);
+		line1.drawBres(palette);
+		line2.drawBres(palette);
+		line3.drawBres(palette);
+	}
+	public void drawRight(SimpleDrawing palette) {
+		int aX = startX;
+		int aY = startY;
+		int bX = startX + width;
+		int bY = startY - height/2;
+		int cX = startX;
+		int cY = startY - height;
+		Line line1 = new Line(aX, aY, bX, bY);
+		Line line2 = new Line(bX, bY, cX, cY);
+		Line line3 = new Line(aX, aY, cX, cY);
+		line1.drawBres(palette);
+		line2.drawBres(palette);
+		line3.drawBres(palette);
+	}
 }
