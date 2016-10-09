@@ -6,6 +6,8 @@ import java.util.Scanner;
 import csci348.drawings.Drawing;
 import csci348.drawings.SimpleDrawing;
 
+import java.awt.event.*;
+
 /**
  * CSCI 373 Fall 2016 Dr. Sheaffer Project 1
  * @author Andrew Petriccione
@@ -34,11 +36,9 @@ public class SimpleDrawProgram {
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		SimpleDrawing palette = new SimpleDrawing();
+		SimpleDrawing palette = new SimpleDrawing(800,800);
 		SimpleDrawProgram draw = new SimpleDrawProgram();
-	
-		
-		
+		SimpleDrawing palette2 = new SimpleDrawing();
 		
 		
 		
@@ -67,31 +67,46 @@ public class SimpleDrawProgram {
 //		Box testBox2 = new Box(800, 800, 25 ,90);
 //		testBox2.draw(myDrawing, draw);
 		
-		//	public Line(int startX, int startY, int endX, int endY) 
-		Triangle newTriangle = new Triangle(300, 300, 50,75 );
-		newTriangle.drawUpTriangle(palette);
-		newTriangle.drawDownTriangle(palette);
-		Triangle smallTriangle = new Triangle(450, 450, 25, 25);
-		smallTriangle.drawDownTriangle(palette);
-		Triangle wideTri= new Triangle(150, 150, 25, 75);
-		wideTri.drawUpTriangle(palette);
-		Triangle tallTri = new Triangle(450, 150, 75, 25);
-		tallTri.drawUpTriangle(palette);
+		//public Line(int startX, int startY, int endX, int endY) 
+		Line newLine = new Line(600, 600,750, 250);
+		newLine.draw(palette2);
+		Line newLine1 = new Line(300, 300,150, 450);
+		newLine1.draw(palette2);
+		Line newLine2 = new Line(300, 300,450, 150);
+		newLine2.draw(palette2);
+		Line newLine3 = new Line(300, 300, 150, 150);
+		newLine3.draw(palette2);
+
 		
-		Arrow newArrow = new Arrow(100, 400, 100, 250);
-		newArrow.draw(palette);
-		Arrow arrow1 = new Arrow(300, 300, 250, 300);
-		arrow1.draw(palette);
 		
-		Arrow upArrow = new Arrow(300, 300, 300, 250);
-		upArrow.draw(palette);
-		
-		Arrow downArrow = new Arrow(300, 300, 300, 450);
-		downArrow.draw(palette);
-		
-		Arrow rightArrow = new Arrow(300, 300, 400, 300);
-		rightArrow.draw(palette);
-		
+//		Parallelogram testP = new Parallelogram(100,100,50,25);
+//		testP.draw(palette);
+	Diamond.makeDiamond(450,450, 55,55).drawVertical(palette);
+//		
+//		Triangle newTriangle = new Triangle(300, 300, 50,75 );
+//		newTriangle.drawUpTriangle(palette);
+//		newTriangle.drawDownTriangle(palette);
+//		Triangle smallTriangle = new Triangle(450, 450, 25, 25);
+//		smallTriangle.drawDownTriangle(palette);
+//		Triangle wideTri= new Triangle(150, 150, 25, 75);
+//		wideTri.drawUpTriangle(palette);
+//		Triangle tallTri = new Triangle(450, 150, 75, 25);
+//		tallTri.drawUpTriangle(palette);
+//		
+//		Arrow newArrow = new Arrow(100, 400, 100, 250);
+//		newArrow.draw(palette);
+//		Arrow arrow1 = new Arrow(300, 300, 250, 300);
+//		arrow1.draw(palette);
+//		
+//		Arrow upArrow = new Arrow(300, 300, 300, 250);
+//		upArrow.draw(palette);
+//		
+//		Arrow downArrow = new Arrow(300, 300, 300, 450);
+//		downArrow.draw(palette);
+//		
+//		Arrow rightArrow = new Arrow(300, 300, 400, 300);
+//		rightArrow.draw(palette);
+//		
 		
 		
 //		Circle newCircle = new Circle(400, 400, 20);
@@ -99,7 +114,13 @@ public class SimpleDrawProgram {
 //		Triangle triangle = new Triangle(300, 300, 50, 50);
 //		triangle.draw(myDrawing, draw);
 //		
-		
+	int width = palette2.getSize().width;
+	int height = palette2.getSize().height;
+	while(true) {
+	if((palette2.getSize().width > width || palette2.getSize().width < width)&&(palette2.getSize().height > height || palette2.getSize().height < height)) {
+		System.out.println("The size of the window is: " + palette2.getSize());
+		}
+	}
 	}// main
 
 }// DrawProgram class

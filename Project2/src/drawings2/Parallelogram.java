@@ -8,7 +8,7 @@ public class Parallelogram extends SimpleDrawProgram{
 	private int height;
 	private int width;
 	
-	public Parallelogram(int startX, int startY, int height, int width) {
+	public Parallelogram(int startX, int startY, int width, int height) {
 		this.startX = startX;
 		this.startY = startY;
 		this.height = height;
@@ -20,7 +20,19 @@ public class Parallelogram extends SimpleDrawProgram{
 		int aY = startY;
 		int bX = startX + width;
 		int bY = startY;
+		int cX = (startX + width/2 + width);
+		int cY = startY - height;
+		int dX = startX + width/2;
+		int dY = startY - height;
 		Line bottom = new Line(aX, aY, bX, bY);
+		Line right = new Line (bX, bY, cX, cY);
+		Line top = new Line(cX, cY, dX, dY);
+		Line left = new Line(dX, dY, aX, aY);
+		bottom.draw(palette);
+		right.draw(palette);
+		top.draw(palette);
+		left.draw(palette);
+		
 	}
 	
 	

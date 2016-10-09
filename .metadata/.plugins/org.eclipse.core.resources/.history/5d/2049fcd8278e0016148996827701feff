@@ -1,0 +1,57 @@
+package drawings2;
+
+import csci348.drawings.SimpleDrawing;
+
+public class Line extends SimpleDrawProgram {
+	protected final int startX;
+	protected final int startY;
+	protected final int endX;
+	protected final int endY;
+
+	public Line(int startX, int startY, int endX, int endY) {
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+	}
+
+	/**
+	 * draw shows the points of the Line object in the Drawing passed as a
+	 * parameter
+	 * 
+	 * @param palette
+	 *            The Drawing object that the line will be shown in.
+	 */	
+	public void drawBres(SimpleDrawing palette) {
+	    int width = endX - startX ;
+	    int height = endY - startY ;
+	    int x = startX;
+	    int y = startY;
+	    int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0 ;
+	    if (width<0) dx1 = -1 ; else if (width>0) dx1 = 1 ;
+	    if (height<0) dy1 = -1 ; else if (height>0) dy1 = 1 ;
+	    if (width<0) dx2 = -1 ; else if (width>0) dx2 = 1 ;
+	    int longest = Math.abs(width) ;
+	    int shortest = Math.abs(height) ;
+	    if ((longest<=shortest)) {
+	        longest = Math.abs(height) ;
+	        shortest = Math.abs(width) ;
+	        if (height<0) dy2 = -1 ; else if (height>0) dy2 = 1 ;
+	        dx2 = 0 ;            
+	    }
+	    int numerator = longest >> 1 ;
+	    for (int i=0;i<=longest;i++) {
+	        palette.showPoint(x,y) ;
+	        numerator += shortest ;
+	        if (!(numerator<longest)) {
+	            numerator -= longest ;
+	            x += dx1 ;
+	            y += dy1 ;
+	        } else {
+	            x += dx2 ;
+	            y += dy2 ;
+	        }
+	    }
+	}//drawBres
+
+}

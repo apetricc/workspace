@@ -22,28 +22,32 @@ public class Line extends SimpleDrawProgram {
 	 * @param palette
 	 *            The Drawing object that the line will be shown in.
 	 */	
-	public void drawBres(SimpleDrawing palette) {
+	public void draw(SimpleDrawing palette) {
 	    int width = endX - startX ;
 	    int height = endY - startY ;
 	    int x = startX;
 	    int y = startY;
-	    int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0 ;
+	    int dx1 = 0;
+	    int dy1 = 0;
+	    int dx2 = 0;
+	    int dy2 = 0 ;
 	    if (width<0) dx1 = -1 ; else if (width>0) dx1 = 1 ;
 	    if (height<0) dy1 = -1 ; else if (height>0) dy1 = 1 ;
 	    if (width<0) dx2 = -1 ; else if (width>0) dx2 = 1 ;
 	    int longest = Math.abs(width) ;
 	    int shortest = Math.abs(height) ;
-	    if (!(longest>shortest)) {
+	    if (longest<=shortest) {
 	        longest = Math.abs(height) ;
 	        shortest = Math.abs(width) ;
-	        if (height<0) dy2 = -1 ; else if (height>0) dy2 = 1 ;
+	        if (height<0) dy2 = -1 ; 
+	        else if (height>0) dy2 = 1 ;
 	        dx2 = 0 ;            
 	    }
-	    int numerator = longest >> 1 ;
+	    int numerator = longest/2;
 	    for (int i=0;i<=longest;i++) {
 	        palette.showPoint(x,y) ;
 	        numerator += shortest ;
-	        if (!(numerator<longest)) {
+	        if (numerator>=longest) {
 	            numerator -= longest ;
 	            x += dx1 ;
 	            y += dy1 ;
@@ -52,6 +56,6 @@ public class Line extends SimpleDrawProgram {
 	            y += dy2 ;
 	        }
 	    }
-	}//drawBres
+	}//draw
 
 }
