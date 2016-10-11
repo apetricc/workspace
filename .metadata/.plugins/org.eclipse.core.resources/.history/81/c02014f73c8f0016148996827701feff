@@ -1,0 +1,9 @@
+package drawings2;
+
+public class DrawingPalette {
+
+	public DrawingPalette() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

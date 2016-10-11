@@ -22,7 +22,7 @@ public class Line extends SimpleDrawProgram {
 	 * @param palette
 	 *            The Drawing object that the line will be shown in.
 	 */	
-	public void draw(SimpleDrawing palette) {
+	public void draw(DrawingPalette palette) {
 	    int width = endX - startX ;
 	    int height = endY - startY ;
 	    int x = startX;

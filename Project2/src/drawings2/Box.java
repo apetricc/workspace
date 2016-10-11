@@ -2,7 +2,7 @@ package drawings2;
 
 import csci348.drawings.SimpleDrawing;
 
-public class Box extends SimpleDrawProgram {
+public class Box extends Shape {
 
 	private int startX;
 	private int startY;
@@ -27,7 +27,8 @@ public class Box extends SimpleDrawProgram {
 	 * @param height
 	 *            the height of the Box
 	 */
-	public Box(int startX, int startY, int width, int height) {
+	public Box(int startX, int startY, int width, int height, DrawingPalette palette) {
+		super(palette);
 		this.startX = startX;
 		this.startY = startY;
 		this.width = width;
@@ -43,7 +44,7 @@ public class Box extends SimpleDrawProgram {
 	 * @param draw
 	 *            the DrawProgram within which the Box will appear
 	 */
-	public void draw(SimpleDrawing palette, SimpleDrawProgram draw) {
+	public void draw(DrawingPalette palette) {
 		Line hLine1 = new Line(startX, startY, startX + width, startY);
 		Line hLine2 = new Line(startX, startY + height, startX + width, startY + height);
 		hLine1.draw(palette);
@@ -52,18 +53,18 @@ public class Box extends SimpleDrawProgram {
 		Line vLine2 = new Line(startX + width, startY, startX + width, startY + height);
 		vLine1.draw(palette);
 		vLine2.draw(palette);
-		draw.diagram.add(this);
+		//palette.boxDiagram2.add(this);
 	}// draw
 
 	/**
-	 * connectBoxes draws connecting lines between two Box objects
+	 * connectboxDiagram draws connecting lines between two Box objects
 	 * 
 	 * @param box2
 	 *            the Box to connect to from the Box connectBoxes is called on
 	 * @param palette
 	 *            the Drawing that the Box objects are in
 	 */
-	public void connectBoxes(Box box2, SimpleDrawing palette) {
+	public void connectBoxes(Box box2, DrawingPalette  palette) {
 		boolean horizontallyAdjacent = (this.startY == box2.startY);
 		boolean verticallyAdjacent = (this.startX == box2.startX);
 		boolean box1IsAbove = (this.startY < box2.startY);
@@ -85,7 +86,7 @@ public class Box extends SimpleDrawProgram {
 			rightAndNotAdjacent(box2, palette);
 	}// connectBoxes
 
-	private void rightAndNotAdjacent(Box box2, SimpleDrawing palette) {
+	private void rightAndNotAdjacent(Box box2, DrawingPalette palette) {
 		xConnect1 = this.startX;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX + box2.width;
@@ -99,7 +100,7 @@ public class Box extends SimpleDrawProgram {
 		hLine2.draw(palette);
 	}// rightAndNotAdjacent
 
-	private void leftAndNotAdjacent(Box box2, SimpleDrawing palette) {
+	private void leftAndNotAdjacent(Box box2, DrawingPalette  palette) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
@@ -113,7 +114,7 @@ public class Box extends SimpleDrawProgram {
 		hLine2.draw(palette);
 	}// leftAndNotAdjacent
 
-	private void right(Box box2, SimpleDrawing palette) {
+	private void right(Box box2, DrawingPalette  palette) {
 		xConnect1 = this.startX;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX + box2.width;
@@ -121,7 +122,7 @@ public class Box extends SimpleDrawProgram {
 		line1.draw(palette);
 	}// right
 
-	private void left(Box box2, SimpleDrawing palette) {
+	private void left(Box box2, DrawingPalette  palette) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
@@ -129,7 +130,7 @@ public class Box extends SimpleDrawProgram {
 		hLine1.draw(palette);
 	}// left
 
-	private void above(Box box2, SimpleDrawing palette) {
+	private void above(Box box2, DrawingPalette  palette) {
 		xConnect1 = this.startX + this.width / 2;
 		yConnect1 = this.startY + this.height;
 		yConnect2 = box2.startY;
@@ -138,7 +139,7 @@ public class Box extends SimpleDrawProgram {
 
 	}// above
 
-	private void below(Box box2, SimpleDrawing palette) {
+	private void below(Box box2, DrawingPalette  palette) {
 		xConnect1 = this.startX + this.width / 2;
 		yConnect1 = this.startY;
 		xConnect2 = box2.startX + box2.width / 2;
@@ -156,8 +157,8 @@ public class Box extends SimpleDrawProgram {
 	 * @param draw
 	 *            the DrawProgram within which the Box will be erased
 	 */
-	public void erase(SimpleDrawing palette, SimpleDrawProgram draw) {
-		draw.diagram.remove(draw.diagram.indexOf(this));
+	public void erase(DrawingPalette  palette, SimpleDrawProgram draw) {
+		draw.boxDiagram.remove(draw.boxDiagram.indexOf(this));
 		int width = this.width;
 		int height = this.height;
 		int x = this.startX;

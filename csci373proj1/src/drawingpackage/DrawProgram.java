@@ -13,7 +13,7 @@ import csci348.drawings.Drawing;
 
 public class DrawProgram {
 
-	ArrayList<Box> diagram = new ArrayList<Box>();
+	static ArrayList<Box> diagram = new ArrayList<Box>();
 
 	public void eraseLast(Drawing draw) {
 		if (!diagram.isEmpty()) {
@@ -26,6 +26,8 @@ public class DrawProgram {
 			System.out.println("Diagram array list is empty--no boxes to erase.");
 	}
 
+	
+	
 	/**
 	 * MAIN METHOD!!
 	 * 
@@ -39,20 +41,24 @@ public class DrawProgram {
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		Box testBox5 = new Box(200, 10, 25, 25);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox5.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(testBox5, myDrawing);
 		Box testBox6 = new Box(10, 10, 20, 40);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox6.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(testBox6, myDrawing);
 		Box testBox7 = new Box(10, 200, 25, 25);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox7.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(testBox7, myDrawing);
 		Box testBox2 = new Box(200, 100, 50, 20);
 		System.out.println("Press enter to draw.");
@@ -63,22 +69,26 @@ public class DrawProgram {
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox3.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(testBox3, myDrawing);
 		Box testBox4 = new Box(100, 10, 50, 20);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		testBox4.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(testBox4, myDrawing);
 		Box anotherBox = new Box(10, 100, 25, 25);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		anotherBox.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(anotherBox, myDrawing);
 		testBox.connectBoxes(anotherBox, myDrawing);
 		Box downRight = new Box(200, 300, 25, 25);
 		System.out.println("Press enter to draw.");
 		scan.nextLine();
 		downRight.draw(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		testBox.connectBoxes(downRight, myDrawing);
 		System.out.println("Press enter to erase.");
 		scan.nextLine();
@@ -86,12 +96,15 @@ public class DrawProgram {
 		System.out.println("Press enter to erase.");
 		scan.nextLine();
 		testBox3.erase(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		System.out.println("Press enter to erase.");
 		scan.nextLine();
 		downRight.erase(myDrawing, draw);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		System.out.println("Press enter to erase the last box drawn.");
 		scan.nextLine();
 		draw.eraseLast(myDrawing);
+		System.out.println("The diagrams arraylist is this long: " +diagram.size());
 		try {
 			System.out.println("Redrawing first Box.\n");
 			Thread.sleep(3000);

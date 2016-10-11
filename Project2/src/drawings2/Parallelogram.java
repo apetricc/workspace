@@ -15,7 +15,7 @@ public class Parallelogram extends SimpleDrawProgram{
 		this.width = width;
 	}
 
-	public void draw(SimpleDrawing palette) {
+	public void draw(DrawingPalette  palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width;

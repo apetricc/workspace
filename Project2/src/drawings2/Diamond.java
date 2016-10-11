@@ -20,7 +20,7 @@ public class Diamond extends SimpleDrawProgram{
 		return new Diamond(x, y, width, height);
 	}
 	
-	public void drawVertical(SimpleDrawing palette) {
+	public void drawVertical(DrawingPalette  palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width/2;

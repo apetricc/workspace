@@ -1,0 +1,15 @@
+package drawingpackage;
+import csci348.drawings.Drawing;
+import csci348.drawings.SimpleDrawing;
+
+public class DrawingPalette extends SimpleDrawing{
+
+	public DrawingPalette() {
+		// TODO Auto-generated constructor stub
+		
+		
+		
+		
+	}
+
+}

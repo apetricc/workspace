@@ -3,14 +3,15 @@ package drawings2;
 import csci348.drawings.SimpleDrawing;
 import drawings2.SimpleDrawProgram;
 
-public class Triangle extends SimpleDrawProgram{
+public class Triangle extends Shape{
 	
 	private int startX;
 	private int startY;
 	private int height;
 	private int width;
 	
-	public Triangle(int startX, int startY, int height, int width) {
+	public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
+		super(palette);
 		this.startX = startX;
 		this.startY = startY;
 		this.height = height;
@@ -20,7 +21,7 @@ public class Triangle extends SimpleDrawProgram{
  * //	public Line(int startX, int startY, int endX, int endY) 
 		Triangle newTriangle = new Triangle(300, 300, 50,75 );
  */
-	public void drawDownTriangle(SimpleDrawing palette) {
+	public void drawDownTriangle(DrawingPalette  palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width/2;
@@ -33,6 +34,7 @@ public class Triangle extends SimpleDrawProgram{
 		line1.draw(palette);
 		line2.draw(palette);
 		line3.draw(palette);
+		//palette.shapes.add(this);
 	}// drawDownTriangle
 
 	/**
@@ -40,7 +42,7 @@ public class Triangle extends SimpleDrawProgram{
 	 * @param palette the SimpleDrawing where the Triangle will be drawn
 	 * @param draw
 	 */
-	public void drawUpTriangle(SimpleDrawing palette) {
+	public void drawUpTriangle(DrawingPalette  palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width/2;
@@ -55,7 +57,7 @@ public class Triangle extends SimpleDrawProgram{
 		line3.draw(palette);
 	}// drawUpTriangle
 	
-	public void drawLeft(SimpleDrawing palette) {
+	public void drawLeft(DrawingPalette palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX - width;
@@ -69,7 +71,7 @@ public class Triangle extends SimpleDrawProgram{
 		line2.draw(palette);
 		line3.draw(palette);
 	}
-	public void drawRight(SimpleDrawing palette) {
+	public void drawRight(DrawingPalette palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width;
