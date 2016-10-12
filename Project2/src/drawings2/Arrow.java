@@ -17,7 +17,7 @@ public class Arrow extends Shape {
 	}
 	
 
-	public void draw(DrawingPalette palette) {
+	public void draw(DrawingPalette palette, String modifier) {
 	    int width = endX - startX ;
 	    int height = endY - startY ;
 	    int x = startX;
@@ -51,25 +51,26 @@ public class Arrow extends Shape {
 	            y += dy2 ;
 	        }
 	    }
-	
-	    
-	    
-	    
+	   
 	    if (endY < startY){
+	    	modifier = "up";
 	    	Triangle pointer = new Triangle(endX-6, endY,12,12,palette);
-	    	pointer.draw(palette);
+	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endY > startY) {
+	    	modifier = "down";
 	    	Triangle pointer = new Triangle(endX - 6, endY, 12, 12,palette);
-	    	pointer.drawDownTriangle(palette);
+	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endX < startX) {
+	    	modifier = "left";
 	    	Triangle pointer = new Triangle(endX, endY + 6, 12, 12,palette);
-	    	pointer.drawLeft(palette);
+	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endX > startX) {
+	    	modifier = "right";
 	    	Triangle pointer = new Triangle(endX, endY + 6, 12, 12,palette);
-	    	pointer.drawRight(palette);
+	    	pointer.draw(palette, modifier);
 	    }
 	    
 	    

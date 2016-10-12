@@ -1,0 +1,93 @@
+package drawings2;
+
+import csci348.drawings.SimpleDrawing;
+import drawings2.SimpleDrawProgram;
+
+public class Triangle extends Shape{
+	
+	private int startX;
+	private int startY;
+	private int height;
+	private int width;
+	
+	public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
+		super(palette);
+		this.startX = startX;
+		this.startY = startY;
+		this.height = height;
+		this.width = width;
+	}
+
+//
+	/**
+	 * drawUpTriangle draws a Triangle object pointing upwards on the SimpleDrawing window
+	 * @param palette the SimpleDrawing where the Triangle will be drawn
+	 * @param draw
+	 */
+	public void draw(DrawingPalette palette, String modifier) {
+		int aX = 0;
+		int aY = 0;
+		int bX = 0;
+		int bY = 0;
+		int cX = 0;
+		int cY = 0;
+		if (modifier.equalsIgnoreCase("up")) {
+			aX = startX;
+			aY = startY;
+			bX = startX + width / 2;
+			bY = startY - height;
+			cX = startX + width;
+			cY = startY;
+		} // drawUpTriangle
+		if (modifier.toLowerCase() == "left") {
+			aX = startX;
+			aY = startY;
+			bX = startX - width;
+			bY = startY - height / 2;
+			cX = startX;
+			cY = startY - height;
+		} // left
+		if (modifier.toLowerCase() == "right") {
+			aX = startX;
+			aY = startY;
+			bX = startX + width;
+			bY = startY - height / 2;
+			cX = startX;
+			cY = startY - height;
+		} // right
+		else {
+			aX = startX;
+			aY = startY;
+			bX = startX + width / 2;
+			bY = startY + height;
+			cX = startX + width;
+			cY = startY;
+		} // down
+		Line line1 = new Line(aX, aY, bX, bY, palette);
+		Line line2 = new Line(bX, bY, cX, cY, palette);
+		Line line3 = new Line(aX, aY, cX, cY, palette);
+		line1.draw(palette, modifier);
+		line2.draw(palette, modifier);
+		line3.draw(palette, modifier);
+	}
+
+	public void erase(DrawingPalette palette) {
+
+	}
+
+	public int getStartX() {
+		return startX;
+	}
+
+	public int getEndX() {
+		return startX + width;
+	}
+
+	public int getStartY() {
+		return startY;
+	}
+
+	public int getEndY() {
+		return startY - height;
+	}
+}// Triangle

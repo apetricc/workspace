@@ -16,7 +16,7 @@ public class Parallelogram extends Shape{
 		this.width = width;
 	}
 
-	public void draw(DrawingPalette  palette) {
+	public void draw(DrawingPalette  palette, String modifier) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width;
@@ -29,10 +29,10 @@ public class Parallelogram extends Shape{
 		Line right = new Line (bX, bY, cX, cY, palette);
 		Line top = new Line(cX, cY, dX, dY, palette);
 		Line left = new Line(dX, dY, aX, aY, palette);
-		bottom.draw(palette);
-		right.draw(palette);
-		top.draw(palette);
-		left.draw(palette);
+		bottom.draw(palette, modifier);
+		right.draw(palette, modifier);
+		top.draw(palette, modifier);
+		left.draw(palette, modifier);
 		
 	}//draw
 	

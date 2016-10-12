@@ -55,13 +55,13 @@ public class SimpleDrawProgram {
 		//SimpleDrawing palette2 = new SimpleDrawing(800,800);
 		Box testBox = new Box(150, 150, 75, 100, palette);
 //		scan.nextLine();
-		testBox.draw(palette);
+		testBox.draw(palette, "");
      	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
      	//Triangle newTri = new Triangle(300,300,25,25,palette);
      	Box box2 = new Box(300, 300, 35, 35, palette);
      	
 //		scan.nextLine();
-		box2.draw(palette);
+		box2.draw(palette, "");
 //     	newTri.drawUpTriangle(palette);
      	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
 //     	Arrow newArrow = new Arrow(300, 300, 450, 150, palette);
@@ -83,9 +83,9 @@ public class SimpleDrawProgram {
 		
 		//public Line(int startX, int startY, int endX, int endY) 
 		Line newLine = new Line(300, 300,750, 250, palette);
-		newLine.draw(palette);
+		newLine.draw(palette, "");
 //		scan.nextLine();
-		palette.eraseLast();
+		//palette.eraseLast();
 //		Line newLine1 = new Line(300, 300,150, 450);
 //		newLine1.draw(draw);
 //		Line newLine2 = new Line(300, 300,450, 150);
@@ -99,9 +99,9 @@ public class SimpleDrawProgram {
 //		testP.draw(palette);
 //	Diamond.makeDiamond(450,450, 55,55).drawVertical(draw);
 //		
-//		Triangle newTriangle = new Triangle(300, 300, 50,75 );
-//		newTriangle.drawUpTriangle(palette);
-//		newTriangle.drawDownTriangle(palette);
+		Triangle newTriangle = new Triangle(350, 350, 50,75, palette);
+		newTriangle.draw(palette, "down");
+		newTriangle.draw(palette, "up");
 //		Triangle smallTriangle = new Triangle(450, 450, 25, 25);
 //		smallTriangle.drawDownTriangle(palette);
 //		Triangle wideTri= new Triangle(150, 150, 25, 75);

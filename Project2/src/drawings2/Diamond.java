@@ -21,7 +21,7 @@ public class Diamond extends Shape{
 		return new Diamond(x, y, width, height, palette);
 	}
 	
-	public void draw(DrawingPalette  palette) {
+	public void draw(DrawingPalette  palette, String modifier) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width/2;
@@ -34,10 +34,10 @@ public class Diamond extends Shape{
 		Line line2 = new Line(cX, cY, bX, bY, palette);
 		Line line3 = new Line(dX, dY, cX, cY, palette);
 		Line line4 = new Line(dX, dY, aX, aY, palette);
-		line1.draw(palette);
-		line2.draw(palette);
-		line3.draw(palette);
-		line4.draw(palette);
+		line1.draw(palette, modifier);
+		line2.draw(palette, modifier);
+		line3.draw(palette, modifier);
+		line4.draw(palette, modifier);
 	}
 	
 	public void erase(DrawingPalette palette) {

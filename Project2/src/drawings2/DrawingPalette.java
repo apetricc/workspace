@@ -46,8 +46,8 @@ public class DrawingPalette extends SimpleDrawing{
 			}
 	}
 
-	public void componentResized(java.awt.event.ComponentEvent event, DrawingPalette palette) {
-		if (event!=null) shapes.get(shapes.indexOf(this)).draw(palette);
+	public void componentResized(java.awt.event.ComponentEvent event, DrawingPalette palette, String modifier) {
+		if (event!=null) shapes.get(shapes.indexOf(this)).draw(palette, modifier);
 	}
 	
 	public void eraseLast() {

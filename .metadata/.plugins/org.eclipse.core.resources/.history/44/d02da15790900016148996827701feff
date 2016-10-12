@@ -1,0 +1,132 @@
+package drawings2;
+
+import csci348.drawings.SimpleDrawing;
+import drawings2.SimpleDrawProgram;
+
+public class Triangle extends Shape{
+	
+	private int startX;
+	private int startY;
+	private int height;
+	private int width;
+	
+	public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
+		super(palette);
+		this.startX = startX;
+		this.startY = startY;
+		this.height = height;
+		this.width = width;
+	}
+/*
+ * //	public Line(int startX, int startY, int endX, int endY) 
+		Triangle newTriangle = new Triangle(300, 300, 50,75 );
+ */
+//	public void drawDownTriangle(DrawingPalette  palette) {
+//		int aX = startX;
+//		int aY = startY;
+//		int bX = startX + width/2;
+//		int bY = startY + height;
+//		int cX = startX + width;
+//		int cY = startY;
+//		Line line1 = new Line(aX, aY, bX, bY, palette);
+//		Line line2 = new Line(bX, bY, cX, cY, palette);
+//		Line line3 = new Line(aX, aY, cX, cY, palette);
+//		line1.draw(palette);
+//		line2.draw(palette);
+//		line3.draw(palette);
+//		//palette.shapes.add(this);
+//	}// drawDownTriangle
+//
+	/**
+	 * drawUpTriangle draws a Triangle object pointing upwards on the SimpleDrawing window
+	 * @param palette the SimpleDrawing where the Triangle will be drawn
+	 * @param draw
+	 */
+	//original call:
+	//public void drawUpTriangle(DrawingPalette  palette) {
+	public void draw(DrawingPalette  palette, String modifier) {
+		int aX = 0;
+		int aY = 0;
+		int bX = 0;
+		int bY = 0;
+		int cX = 0;
+		int cY = 0;
+		if (modifier.toLowerCase() == "up") {
+		aX = startX;
+		aY = startY;
+		bX = startX + width/2;
+		bY = startY - height;
+		cX = startX + width;
+		cY = startY;
+//		Line line1 = new Line(aX, aY, bX, bY, palette);
+//		Line line2 = new Line(bX, bY, cX, cY, palette);
+//		Line line3 = new Line(aX, aY, cX, cY, palette);
+//		line1.draw(palette, modifier);
+//		line2.draw(palette, modifier);
+//		line3.draw(palette, modifier);
+		}// drawUpTriangle
+		if (modifier.toLowerCase() == "left") {
+			aX = startX;
+			aY = startY;
+			bX = startX - width;
+			bY = startY - height/2;
+			cX = startX;
+			cY = startY - height;
+//			Line line1 = new Line(aX, aY, bX, bY, palette);
+//			Line line2 = new Line(bX, bY, cX, cY, palette);
+//			Line line3 = new Line(aX, aY, cX, cY, palette);
+//			line1.draw(palette, modifier);
+//			line2.draw(palette, modifier);
+//			line3.draw(palette, modifier);		
+		}//left
+		if (modifier.toLowerCase() == "right") {		
+		aX = startX;
+		aY = startY;
+		bX = startX + width;
+		bY = startY - height/2;
+		cX = startX;
+		cY = startY - height;
+//		Line line1 = new Line(aX, aY, bX, bY, palette);
+//		Line line2 = new Line(bX, bY, cX, cY, palette);
+//		Line line3 = new Line(aX, aY, cX, cY, palette);
+//		line1.draw(palette, modifier);
+//		line2.draw(palette, modifier);
+//		line3.draw(palette, modifier);
+	}//right
+		if (modifier.toLowerCase() == "down") {
+		aX = startX;
+		aY = startY;
+		bX = startX + width/2;
+		bY = startY + height;
+		cX = startX + width;
+		cY = startY;
+//		Line line1 = new Line(aX, aY, bX, bY, palette);
+//		Line line2 = new Line(bX, bY, cX, cY, palette);
+//		Line line3 = new Line(aX, aY, cX, cY, palette);
+//		line1.draw(palette);
+//		line2.draw(palette);
+//		line3.draw(palette);
+	}//down
+	Line line1 = new Line(aX, aY, bX, bY, palette);
+	Line line2 = new Line(bX, bY, cX, cY, palette);
+	Line line3 = new Line(aX, aY, cX, cY, palette);
+	line1.draw(palette, modifier);
+	line2.draw(palette, modifier);
+	line3.draw(palette, modifier);
+	}
+	public void erase(DrawingPalette palette) {
+		
+	}
+	public int getStartX() {
+		return startX;
+	}
+	public int getEndX() {
+		return startX + width;
+	}
+	public int getStartY() {
+		return startY;
+	}
+	public int getEndY() {
+		return startY - height;
+	}
+}//Triangle 
