@@ -1,0 +1,6 @@
+package drawings2;
+
+public interface ShapeInterface {
+//	public void draw(DrawingPalette palette);
+//	public void erase(DrawingPalette palette);
+}

@@ -28,9 +28,9 @@ public class Triangle extends Shape{
 		int bY = startY + height;
 		int cX = startX + width;
 		int cY = startY;
-		Line line1 = new Line(aX, aY, bX, bY);
-		Line line2 = new Line(bX, bY, cX, cY);
-		Line line3 = new Line(aX, aY, cX, cY);
+		Line line1 = new Line(aX, aY, bX, bY, palette);
+		Line line2 = new Line(bX, bY, cX, cY, palette);
+		Line line3 = new Line(aX, aY, cX, cY, palette);
 		line1.draw(palette);
 		line2.draw(palette);
 		line3.draw(palette);
@@ -42,16 +42,18 @@ public class Triangle extends Shape{
 	 * @param palette the SimpleDrawing where the Triangle will be drawn
 	 * @param draw
 	 */
-	public void drawUpTriangle(DrawingPalette  palette) {
+	//original call:
+	//public void drawUpTriangle(DrawingPalette  palette) {
+	public void draw(DrawingPalette  palette) {
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width/2;
 		int bY = startY - height;
 		int cX = startX + width;
 		int cY = startY;
-		Line line1 = new Line(aX, aY, bX, bY);
-		Line line2 = new Line(bX, bY, cX, cY);
-		Line line3 = new Line(aX, aY, cX, cY);
+		Line line1 = new Line(aX, aY, bX, bY, palette);
+		Line line2 = new Line(bX, bY, cX, cY, palette);
+		Line line3 = new Line(aX, aY, cX, cY, palette);
 		line1.draw(palette);
 		line2.draw(palette);
 		line3.draw(palette);
@@ -64,9 +66,9 @@ public class Triangle extends Shape{
 		int bY = startY - height/2;
 		int cX = startX;
 		int cY = startY - height;
-		Line line1 = new Line(aX, aY, bX, bY);
-		Line line2 = new Line(bX, bY, cX, cY);
-		Line line3 = new Line(aX, aY, cX, cY);
+		Line line1 = new Line(aX, aY, bX, bY, palette);
+		Line line2 = new Line(bX, bY, cX, cY, palette);
+		Line line3 = new Line(aX, aY, cX, cY, palette);
 		line1.draw(palette);
 		line2.draw(palette);
 		line3.draw(palette);
@@ -78,11 +80,26 @@ public class Triangle extends Shape{
 		int bY = startY - height/2;
 		int cX = startX;
 		int cY = startY - height;
-		Line line1 = new Line(aX, aY, bX, bY);
-		Line line2 = new Line(bX, bY, cX, cY);
-		Line line3 = new Line(aX, aY, cX, cY);
+		Line line1 = new Line(aX, aY, bX, bY, palette);
+		Line line2 = new Line(bX, bY, cX, cY, palette);
+		Line line3 = new Line(aX, aY, cX, cY, palette);
 		line1.draw(palette);
 		line2.draw(palette);
 		line3.draw(palette);
 	}
-}
+	public void erase(DrawingPalette palette) {
+		
+	}
+	public int getStartX() {
+		return startX;
+	}
+	public int getEndX() {
+		return startX + width;
+	}
+	public int getStartY() {
+		return startY;
+	}
+	public int getEndY() {
+		return startY - height;
+	}
+}//Triangle 

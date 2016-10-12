@@ -1,0 +1,17 @@
+package drawings2;
+import csci348.drawings.SimpleDrawing;
+
+public abstract class Shape implements ShapeInterface{
+
+	public Shape(DrawingPalette palette) {
+		
+		palette.shapes.add(this);
+	}
+	public void erase(Shape shape) {
+		shape.erase(this);
+	}
+	
+//	public int getStartX() {
+//		return 
+//	}
+}

@@ -21,27 +21,19 @@ import java.awt.event.*;
 
 public class SimpleDrawProgram {
 
-	private static Label statusLabel;
-	private Label message;
-	private static Frame window;
-	Label headerLabel = new Label();
-	private Panel controlPanel;
-	Frame mainFrame = new Frame("Java AWT Examples");
-	ArrayList<Box> boxDiagram = new ArrayList<Box>();
 
 	
-	
-//	public void eraseLast(SimpleDrawing draw) {
-//		if (!boxDiagram.isEmpty()) {
+//	public static void eraseLast(DrawingPalette palette) {
+//		if (!palette.shapes.isEmpty()) {
 //			try {
-//				((Box) boxDiagram.get(boxDiagram.size() - 1)).erase(draw, this);
+//				(palette.shapes.get(palette.shapes.size() - 1)).erase(palette);
 //			} catch (Exception e) {
 //				e.printStackTrace();
 //			}
 //		} else
 //			System.out.println("Diagram array list is empty--no boxes to erase.");
 //	}
-
+	
 	
 	public void testSize(SimpleDrawing palette) {
 		
@@ -58,20 +50,28 @@ public class SimpleDrawProgram {
 //		Scanner scan = new Scanner(System.in);
 		//SimpleDrawProgram page = new SimpleDrawProgram();
 		//SimpleDrawing palette = new SimpleDrawing(800,800);
+		System.out.println("Draw some stuff: ");
 		DrawingPalette palette = new DrawingPalette(600, 600);
 		//SimpleDrawing palette2 = new SimpleDrawing(800,800);
-		
-     	Box testBox = new Box(350, 350, 75, 100, palette);
-     	testBox.draw(palette);
+		Box testBox = new Box(150, 150, 75, 100, palette);
+//		scan.nextLine();
+		testBox.draw(palette);
      	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
-     	Triangle newTri = new Triangle(300,300,25,25,palette);
-     	newTri.drawUpTriangle(palette);
-     	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
-     	Arrow newArrow = new Arrow(300, 300, 450, 150, palette);
-     	newArrow.draw(palette);
-     	System.out.println("The shapes array list is now: " + palette.shapes.size() + " with the addition of the arrow? \n"
-     			+" Because the line and the triangle are each being counted...");
+     	//Triangle newTri = new Triangle(300,300,25,25,palette);
+     	Box box2 = new Box(300, 300, 35, 35, palette);
      	
+//		scan.nextLine();
+		box2.draw(palette);
+//     	newTri.drawUpTriangle(palette);
+     	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
+//     	Arrow newArrow = new Arrow(300, 300, 450, 150, palette);
+//		scan.nextLine();
+//     	newArrow.draw(palette);
+     	System.out.println("The shapes array list is now:   " + palette.shapes.size() + "    with the addition of the arrow? \n"
+     			+" Because the line and the triangle are each being counted...\n"
+     			+ " \nNow erase some stuff");
+//		scan.nextLine();
+		
 		//System.out.println("Press enter to draw box.");
 		//scan.nextLine();
 //		testBox.draw(draw, page);
@@ -82,8 +82,10 @@ public class SimpleDrawProgram {
 	//	testBox2.draw(draw, page);
 		
 		//public Line(int startX, int startY, int endX, int endY) 
-		Line newLine = new Line(600, 600,750, 250);
+		Line newLine = new Line(300, 300,750, 250, palette);
 		newLine.draw(palette);
+//		scan.nextLine();
+		palette.eraseLast();
 //		Line newLine1 = new Line(300, 300,150, 450);
 //		newLine1.draw(draw);
 //		Line newLine2 = new Line(300, 300,450, 150);

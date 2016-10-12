@@ -57,7 +57,7 @@ public class Arrow extends Shape {
 	    
 	    if (endY < startY){
 	    	Triangle pointer = new Triangle(endX-6, endY,12,12,palette);
-	    	pointer.drawUpTriangle(palette);
+	    	pointer.draw(palette);
 	    }
 	    else if (endY > startY) {
 	    	Triangle pointer = new Triangle(endX - 6, endY, 12, 12,palette);
@@ -74,7 +74,28 @@ public class Arrow extends Shape {
 	    
 	    
 	}//draw
-	
 
+
+	
+	public void erase(DrawingPalette palette) {
+		
+		
+	}
+	
+	public int getStartX() {
+		return startX;
+	}
+
+	public int getStartY() {
+		return startY;
+	}
+
+	public int getEndX() {
+		return endX;
+	}
+
+	public int getEndY() {
+		return endY;
+	}
 
 }

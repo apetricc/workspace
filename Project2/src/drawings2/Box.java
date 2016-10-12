@@ -45,15 +45,15 @@ public class Box extends Shape {
 	 *            the DrawProgram within which the Box will appear
 	 */
 	public void draw(DrawingPalette palette) {
-		Line hLine1 = new Line(startX, startY, startX + width, startY);
-		Line hLine2 = new Line(startX, startY + height, startX + width, startY + height);
+		Line hLine1 = new Line(startX, startY, startX + width, startY, palette);
+		Line hLine2 = new Line(startX, startY - height, startX + width, startY - height, palette);
 		hLine1.draw(palette);
 		hLine2.draw(palette);
-		Line vLine1 = new Line(startX, startY, startX, startY + height);
-		Line vLine2 = new Line(startX + width, startY, startX + width, startY + height);
+		Line vLine1 = new Line(startX, startY, startX, startY - height, palette);
+		Line vLine2 = new Line(startX + width, startY, startX + width, startY - height, palette);
 		vLine1.draw(palette);
 		vLine2.draw(palette);
-		//palette.boxDiagram2.add(this);
+		palette.shapes.add(this);
 	}// draw
 
 	/**
@@ -92,9 +92,9 @@ public class Box extends Shape {
 		xConnect2 = box2.startX + box2.width;
 		yConnect2 = box2.startY + box2.height / 2;
 		xJoint = xConnect1 - Math.abs(xConnect2 - xConnect1) / 2;
-		Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1);
-		Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2);
-		Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2);
+		Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1, palette);
+		Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2, palette);
+		Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2, palette);
 		vLine1.draw(palette);
 		hLine1.draw(palette);
 		hLine2.draw(palette);
@@ -106,9 +106,9 @@ public class Box extends Shape {
 		xConnect2 = box2.startX;
 		yConnect2 = box2.startY + box2.height / 2;
 		xJoint = xConnect1 + Math.abs(xConnect2 - xConnect1) / 2;
-		Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1);
-		Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2);
-		Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2);
+		Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1, palette);
+		Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2, palette);
+		Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2, palette);
 		vLine1.draw(palette);
 		hLine1.draw(palette);
 		hLine2.draw(palette);
@@ -118,7 +118,7 @@ public class Box extends Shape {
 		xConnect1 = this.startX;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX + box2.width;
-		Line line1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1);
+		Line line1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1, palette);
 		line1.draw(palette);
 	}// right
 
@@ -126,7 +126,7 @@ public class Box extends Shape {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
-		Line hLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1);
+		Line hLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1, palette);
 		hLine1.draw(palette);
 	}// left
 
@@ -134,7 +134,7 @@ public class Box extends Shape {
 		xConnect1 = this.startX + this.width / 2;
 		yConnect1 = this.startY + this.height;
 		yConnect2 = box2.startY;
-		Line vLine1 = new Line(xConnect1, yConnect1, xConnect1, yConnect2);
+		Line vLine1 = new Line(xConnect1, yConnect1, xConnect1, yConnect2, palette);
 		vLine1.draw(palette);
 
 	}// above
@@ -144,7 +144,7 @@ public class Box extends Shape {
 		yConnect1 = this.startY;
 		xConnect2 = box2.startX + box2.width / 2;
 		yConnect2 = box2.startY + height;
-		Line vLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect2);
+		Line vLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect2 , palette);
 		vLine1.draw(palette);
 
 	}// below
@@ -157,8 +157,8 @@ public class Box extends Shape {
 	 * @param draw
 	 *            the DrawProgram within which the Box will be erased
 	 */
-	public void erase(DrawingPalette  palette, SimpleDrawProgram draw) {
-		draw.boxDiagram.remove(draw.boxDiagram.indexOf(this));
+	public void erase(DrawingPalette  palette) {
+		palette.shapes.remove(palette.shapes.indexOf(this));
 		int width = this.width;
 		int height = this.height;
 		int x = this.startX;
@@ -168,9 +168,23 @@ public class Box extends Shape {
 			palette.hidePoint(i, y);
 			palette.hidePoint(i, y + height);
 		} // for i
-		for (int j = y; j <= y + height; j++) {
+		for (int j = y; j >= y - height; j--) {
 			palette.hidePoint(x, j);
 			palette.hidePoint(x + width, j);
 		} // for j
 	}// erase
+	
+	public int getStartX() {
+		return startX;
+	}
+	public int getEndX() {
+		return startX + this.width;
+	}
+	public int getStartY() {
+		return startY;
+	}
+	public int getEndY() {
+		return startY - this.height;
+	}
+	
 }// Box
