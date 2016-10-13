@@ -3,10 +3,10 @@ package drawings2;
 import csci348.drawings.SimpleDrawing;
 
 public class Line extends Shape {
-	protected final int startX;
-	protected final int startY;
-	protected final int endX;
-	protected final int endY;
+	int startX;
+	int startY;
+	int endX;
+	int endY;
 
 	public Line(int startX, int startY, int endX, int endY, DrawingPalette palette) {
 		super(palette);
@@ -24,7 +24,6 @@ public class Line extends Shape {
 	 *            The Drawing object that the line will be shown in.
 	 */
 	public void draw(DrawingPalette palette, String modifier) {
-		palette.shapes.add(this);
 		int width = endX - startX;
 		int height = endY - startY;
 		int x = startX;
@@ -72,7 +71,7 @@ public class Line extends Shape {
 	}// draw
 
 	public void erase(DrawingPalette palette) {
-		//palette.shapes.remove(palette.shapes.indexOf(this));
+//		palette.shapes.remove(this);
 		int width = endX - startX;
 		int height = endY - startY;
 		int x = startX;

@@ -21,7 +21,6 @@ public class Parallelogram extends Shape{
 	}
 
 	public void draw(DrawingPalette  palette, String modifier) {
-		palette.shapes.add(this);
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width;
@@ -31,7 +30,7 @@ public class Parallelogram extends Shape{
 		int dX = startX + width/2;
 		int dY = startY - height;
 		bottom = new Line(aX, aY, bX, bY, palette);
-		right = new Line (bX, bY, cX, cY, palette);
+		right = new Line(bX, bY, cX, cY, palette);
 		top = new Line(cX, cY, dX, dY, palette);
 		left = new Line(dX, dY, aX, aY, palette);
 		bottom.draw(palette, modifier);
@@ -42,6 +41,7 @@ public class Parallelogram extends Shape{
 	}//draw
 	
 	public void erase(DrawingPalette palette) {
+//		palette.shapes.remove(this);
 		bottom.erase(palette);
 		top.erase(palette);
 		right.erase(palette);

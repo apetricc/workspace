@@ -160,6 +160,7 @@ public class Box extends Shape {
 	 *            the DrawProgram within which the Box will be erased
 	 */
 	public void erase(DrawingPalette palette) {
+//		palette.shapes.remove(this);
 		hLine1.erase(palette);
 		hLine2.erase(palette);
 		vLine1.erase(palette);

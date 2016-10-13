@@ -20,9 +20,6 @@ public class Circle extends Shape{
 
 	@Override
 	public void draw(DrawingPalette palette, String modifier) {
-		palette.shapes.add(this);
-		Line newLine = new Line(startX, startY, startX + 2*radius, startY + 2*radius, palette);
-		newLine.draw(palette, "");
 		int midX = startX + radius;
 		int midY = startY + radius;
 		
@@ -40,6 +37,7 @@ public class Circle extends Shape{
 	}//draw
 
 	public void erase(DrawingPalette palette) {
+		//palette.shapes.remove(this);
 		int midX = startX + radius;
 		int midY = startY + radius;
 		for (int i = startX; i < startX+(2*radius); i++) {

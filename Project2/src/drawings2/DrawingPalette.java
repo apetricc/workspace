@@ -16,8 +16,11 @@ public class DrawingPalette extends SimpleDrawing{
 	
 	public DrawingPalette(int width, int height) {
 		super();
-		this.shapes = shapes;
 	}
+	public DrawingPalette() {
+		super();
+	}
+	
 /**
  * why don't I just hide a 10*10 area around where the mouse is clicked??  Spot erase.
  */
@@ -45,24 +48,41 @@ public class DrawingPalette extends SimpleDrawing{
 							+ "startY: " + startY + "\n"
 							+ " endX: " + endX + " \n"									
 											+ "endY: " + endY);
+					System.out.println("The array list shapes is now this long (before click event triggered erase): " + shapes.size());
 					System.out.println("The click that registered to erase was: " + e.getPoint());
 					shapes.get(i).erase(this);
-					shapes.remove(this);
-					System.out.println("The array list shapes is now this long: " + shapes.size());
+					if (!shapes.isEmpty()) {
+						shapes.remove(shapes.get(i));
+					}
+					//shapes.remove(shapes.get(shapes.indexOf(this)));
+					//shapes.remove(shapes.indexOf(this));
+					System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
 
 				}
 			}
 	}
-	
-	public void componentResized(ComponentEvent event, DrawingPalette palette) {
-		if (event!=null) {
+	@Override
+	public void componentResized(ComponentEvent e) {
+		System.out.println("The size of the window is: " + e.getComponent().getSize());
+		if (e!=null && shapes != null) {
 			System.out.println("Window resized, should be redrawing window from linked list now...");
-			shapes.get(shapes.indexOf(this)).draw(palette, "");
+			int numShapes = shapes.size();
+//			for (Shape s : shapes) {
+//				s.draw(this, "");
+//			}
+			for (int i = 0; i < numShapes; i++) {
+				shapes.get(i).draw(this, "");
+			}
+//			
+			
 		}
 	}//componentResized
 	
 //	public void setForegroundColor(java.awt.Color color) {
 //		setForegroundColor(color);
 //	}
+	public void addShape(Shape s) {
+		shapes.add(s);
+	}
 	
 }

@@ -24,10 +24,14 @@ public class SimpleDrawProgram {
 	 * 
 	 * @param args
 	 */
+	/*
+	 * need to have an addToArrayList method
+	 */
 	public static void main(String[] args) {
 		System.out.println("Draw some stuff: ");
-		DrawingPalette palette = new DrawingPalette(600, 600);
+		DrawingPalette palette = new DrawingPalette(600,600);
 		Box testBox = new Box(150, 150, 75, 100, palette);
+		palette.addShape(testBox);
 		testBox.draw(palette, "");
      	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
      	Box box2 = new Box(300, 300, 35, 35, palette);
@@ -36,24 +40,33 @@ public class SimpleDrawProgram {
      	System.out.println("Shapes array list is equal to: " + palette.shapes.size());
      	Arrow newArrow = new Arrow(300, 300, 450, 150, palette);
      	newArrow.draw(palette, "");
-     	
+		palette.addShape(newArrow);
      	System.out.println("The shapes array list is now:   " + palette.shapes.size() + "    with the addition of the arrow? \n"
      			+" Because the line and the triangle are each being counted...\n"
      			+ " \nNow erase some stuff");
 		Line newLine = new Line(300, 300,750, 250, palette);
 		newLine.draw(palette, "");
+		palette.addShape(newLine);
+     	System.out.println("The shapes array list is now, after adding a line:   " + palette.shapes.size() );
+		
 		Triangle newTriangle = new Triangle(350, 350, 50,75, palette);
 		newTriangle.draw(palette, "up");
+		palette.addShape(newTriangle);
 		Triangle newtri = new Triangle(25,25,25,25, palette);
 		newtri.draw(palette, "down");
+		palette.addShape(newtri);
 		Circle newCircle = new Circle(50, 50, 20, palette);
 		newCircle.draw(palette, "");
+		palette.addShape(newCircle);
 		Parallelogram newP = new Parallelogram(55, 450, 25, 35,palette);
 		newP.draw(palette, "");
-		Diamond d = new Diamond(450, 150, 50,50, palette);
+		palette.addShape(newP);
+		Diamond d = new Diamond(650, 650, 50,50, palette);
 		d.draw(palette, "");
+		palette.addShape(d);
 		palette.setBackgroundColor(Color.BLUE);
 		palette.setForegroundColor(Color.RED);
+		System.out.println(palette.shapes.toString());
 		
 		
 	}// main

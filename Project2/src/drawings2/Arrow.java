@@ -1,11 +1,11 @@
 package drawings2;
 public class Arrow extends Shape {
-	private int startX;
-	private int startY;
-	private int endX;
-	private int endY;
-	private Line arrowLine;
-	private Triangle pointer;
+	int startX;
+	int startY;
+	int endX;
+	int endY;
+	Line arrowLine;
+	Triangle pointer;
 	public Arrow(int startX, int startY, int endX, int endY,DrawingPalette palette) {
 		super(palette);
 		this.startX = startX;
@@ -16,7 +16,6 @@ public class Arrow extends Shape {
 	
 
 	public void draw(DrawingPalette palette, String modifier) {
-
 	    arrowLine = new Line(startX, startY, endX, endY, palette);
 	    arrowLine.draw(palette, "");
 	    
@@ -48,6 +47,7 @@ public class Arrow extends Shape {
 
 	
 	public void erase(DrawingPalette palette) {
+//		palette.shapes.remove(this);
 		arrowLine.erase(palette);
 		pointer.erase(palette);
 	}

@@ -5,14 +5,14 @@ import drawings2.SimpleDrawProgram;
 
 public class Triangle extends Shape{
 	
-	private int startX;
-	private int startY;
-	private int height;
-	private int width;
-	private Line line1;
-	private Line line2;
-	private Line line3;
-	private int endY;
+	int startX;
+	int startY;
+	int height;
+	int width;
+	Line line1;
+	Line line2;
+	Line line3;
+	int endY;
 	
 	public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
 		super(palette);
@@ -29,7 +29,6 @@ public class Triangle extends Shape{
 	 * @param draw
 	 */
 	public void draw(DrawingPalette palette, String modifier) {
-		palette.shapes.add(this);
 		int aX = startX;
 		int aY = startY;
 		int bX = startX;
@@ -75,7 +74,7 @@ public class Triangle extends Shape{
 	}
 
 	public void erase(DrawingPalette palette) {
-		//palette.shapes.remove(this);
+//		palette.shapes.remove(this);
 		line1.erase(palette);
 		line2.erase(palette);
 		line3.erase(palette);

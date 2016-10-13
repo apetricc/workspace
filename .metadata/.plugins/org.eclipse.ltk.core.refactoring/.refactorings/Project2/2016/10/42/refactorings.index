@@ -1,3 +1,6 @@
 1476027277823	Rename method 'drawBres'
 1476027405587	Rename method 'draw'
 1476069939278	Rename field 'diagram'
+1476372365304	Rename local variable 'event'
+1476378421812	Rename method 'addShape'
+1476378869685	Delete element

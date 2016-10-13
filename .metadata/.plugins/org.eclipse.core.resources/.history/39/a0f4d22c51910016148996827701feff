@@ -1,0 +1,9 @@
+package drawings2;
+
+public class LineForShapes {
+
+	public LineForShapes() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
