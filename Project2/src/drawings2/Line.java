@@ -72,7 +72,7 @@ public class Line extends Shape {
 	}// draw
 
 	public void erase(DrawingPalette palette) {
-		palette.shapes.remove(palette.shapes.indexOf(this));
+		//palette.shapes.remove(palette.shapes.indexOf(this));
 		int width = endX - startX;
 		int height = endY - startY;
 		int x = startX;

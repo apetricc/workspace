@@ -1,7 +1,5 @@
 package drawings2;
 
-import csci348.drawings.SimpleDrawing;
-
 public class Box extends Shape {
 
 	private int startX;
@@ -68,7 +66,7 @@ public class Box extends Shape {
 	 * @param palette
 	 *            the Drawing that the Box objects are in
 	 */
-	public void connectBoxes(Box box2, DrawingPalette  palette, String modifier) {
+	public void connectBoxes(Box box2, DrawingPalette palette, String modifier) {
 		boolean horizontallyAdjacent = (this.startY == box2.startY);
 		boolean verticallyAdjacent = (this.startX == box2.startX);
 		boolean box1IsAbove = (this.startY < box2.startY);
@@ -81,7 +79,7 @@ public class Box extends Shape {
 		if (box1IsLeft && horizontallyAdjacent)
 			left(box2, palette, modifier);
 		if (box1IsAbove && verticallyAdjacent)
-			above(box2, palette,modifier);
+			above(box2, palette, modifier);
 		if (box1IsBelow && verticallyAdjacent)
 			below(box2, palette, modifier);
 		if (box1IsLeft && !horizontallyAdjacent)
@@ -104,7 +102,7 @@ public class Box extends Shape {
 		hLine2.draw(palette, modifier);
 	}// rightAndNotAdjacent
 
-	private void leftAndNotAdjacent(Box box2, DrawingPalette  palette, String modifier) {
+	private void leftAndNotAdjacent(Box box2, DrawingPalette palette, String modifier) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
@@ -118,7 +116,7 @@ public class Box extends Shape {
 		hLine2.draw(palette, modifier);
 	}// leftAndNotAdjacent
 
-	private void right(Box box2, DrawingPalette  palette, String modifier) {
+	private void right(Box box2, DrawingPalette palette, String modifier) {
 		xConnect1 = this.startX;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX + box2.width;
@@ -126,7 +124,7 @@ public class Box extends Shape {
 		line1.draw(palette, modifier);
 	}// right
 
-	private void left(Box box2, DrawingPalette  palette, String modifier) {
+	private void left(Box box2, DrawingPalette palette, String modifier) {
 		xConnect1 = this.startX + this.width;
 		yConnect1 = this.startY + this.height / 2;
 		xConnect2 = box2.startX;
@@ -134,7 +132,7 @@ public class Box extends Shape {
 		hLine1.draw(palette, modifier);
 	}// left
 
-	private void above(Box box2, DrawingPalette  palette, String modifier) {
+	private void above(Box box2, DrawingPalette palette, String modifier) {
 		xConnect1 = this.startX + this.width / 2;
 		yConnect1 = this.startY + this.height;
 		yConnect2 = box2.startY;
@@ -143,12 +141,12 @@ public class Box extends Shape {
 
 	}// above
 
-	private void below(Box box2, DrawingPalette  palette, String modifier) {
+	private void below(Box box2, DrawingPalette palette, String modifier) {
 		xConnect1 = this.startX + this.width / 2;
 		yConnect1 = this.startY;
 		xConnect2 = box2.startX + box2.width / 2;
 		yConnect2 = box2.startY + height;
-		Line vLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect2 , palette);
+		Line vLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect2, palette);
 		vLine1.draw(palette, modifier);
 
 	}// below
@@ -161,24 +159,27 @@ public class Box extends Shape {
 	 * @param draw
 	 *            the DrawProgram within which the Box will be erased
 	 */
-	public void erase(DrawingPalette  palette) {
+	public void erase(DrawingPalette palette) {
 		hLine1.erase(palette);
 		hLine2.erase(palette);
 		vLine1.erase(palette);
 		vLine2.erase(palette);
 	}// erase
-	
+
 	public int getStartX() {
 		return startX;
 	}
+
 	public int getEndX() {
 		return startX + this.width;
 	}
+
 	public int getStartY() {
 		return startY;
 	}
+
 	public int getEndY() {
 		return startY - this.height;
 	}
-	
+
 }// Box

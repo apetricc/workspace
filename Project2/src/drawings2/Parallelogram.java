@@ -3,10 +3,14 @@ import csci348.drawings.SimpleDrawing;
 
 public class Parallelogram extends Shape{
 
-	private int startX;
-	private int startY;
-	private int height;
-	private int width;
+	int startX;
+	int startY;
+	int height;
+	int width;
+	Line bottom;
+	Line right;
+	Line top;
+	Line left;
 	
 	public Parallelogram(int startX, int startY, int width, int height, DrawingPalette palette) {
 		super(palette);
@@ -17,6 +21,7 @@ public class Parallelogram extends Shape{
 	}
 
 	public void draw(DrawingPalette  palette, String modifier) {
+		palette.shapes.add(this);
 		int aX = startX;
 		int aY = startY;
 		int bX = startX + width;
@@ -25,10 +30,10 @@ public class Parallelogram extends Shape{
 		int cY = startY - height;
 		int dX = startX + width/2;
 		int dY = startY - height;
-		Line bottom = new Line(aX, aY, bX, bY, palette);
-		Line right = new Line (bX, bY, cX, cY, palette);
-		Line top = new Line(cX, cY, dX, dY, palette);
-		Line left = new Line(dX, dY, aX, aY, palette);
+		bottom = new Line(aX, aY, bX, bY, palette);
+		right = new Line (bX, bY, cX, cY, palette);
+		top = new Line(cX, cY, dX, dY, palette);
+		left = new Line(dX, dY, aX, aY, palette);
 		bottom.draw(palette, modifier);
 		right.draw(palette, modifier);
 		top.draw(palette, modifier);
@@ -37,7 +42,10 @@ public class Parallelogram extends Shape{
 	}//draw
 	
 	public void erase(DrawingPalette palette) {
-		
+		bottom.erase(palette);
+		top.erase(palette);
+		right.erase(palette);
+		left.erase(palette);
 		
 	}
 	public int getStartX() {

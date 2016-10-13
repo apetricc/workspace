@@ -1,0 +1,70 @@
+package drawings2;
+public class Arrow extends Shape {
+	private int startX;
+	private int startY;
+	private int endX;
+	private int endY;
+	private Line arrowLine;
+	private Triangle pointer;
+	public Arrow(int startX, int startY, int endX, int endY,DrawingPalette palette) {
+		super(palette);
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+	}
+	
+
+	public void draw(DrawingPalette palette, String modifier) {
+
+	    arrowLine = new Line(startX, startY, endX, endY, palette);
+	    arrowLine.draw(palette, "");
+	    
+	    if (endY < startY){
+	    	modifier = "up";
+	    	pointer = new Triangle(endX-6, endY,12,12,palette);
+	    	pointer.draw(palette, modifier);
+	    }
+	    else if (endY > startY) {
+	    	modifier = "down";
+	    	pointer = new Triangle(endX - 6, endY, 12, 12,palette);
+	    	pointer.draw(palette, modifier);
+	    }
+	    else if (endX < startX) {
+	    	modifier = "left";
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
+	    	pointer.draw(palette, modifier);
+	    }
+	    else if (endX > startX) {
+	    	modifier = "right";
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
+	    	pointer.draw(palette, modifier);
+	    }
+	    
+	    
+	}//draw
+
+
+	
+	public void erase(DrawingPalette palette) {
+		arrowLine.erase(palette);
+		pointer.erase(palette);
+	}
+	
+	public int getStartX() {
+		return startX;
+	}
+
+	public int getStartY() {
+		return startY;
+	}
+
+	public int getEndX() {
+		return endX;
+	}
+
+	public int getEndY() {
+		return endY;
+	}
+
+}

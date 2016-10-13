@@ -1,13 +1,11 @@
 package drawings2;
-
-import csci348.drawings.SimpleDrawing;
-
 public class Arrow extends Shape {
 	private int startX;
 	private int startY;
 	private int endX;
 	private int endY;
-	
+	private Line arrowLine;
+	private Triangle pointer;
 	public Arrow(int startX, int startY, int endX, int endY,DrawingPalette palette) {
 		super(palette);
 		this.startX = startX;
@@ -18,69 +16,40 @@ public class Arrow extends Shape {
 	
 
 	public void draw(DrawingPalette palette, String modifier) {
-	    int width = endX - startX ;
-	    int height = endY - startY ;
-	    int x = startX;
-	    int y = startY;
-	    int dx1 = 0;
-	    int dy1 = 0;
-	    int dx2 = 0;
-	    int dy2 = 0 ;
-	    if (width<0) dx1 = -1 ; else if (width>0) dx1 = 1 ;
-	    if (height<0) dy1 = -1 ; else if (height>0) dy1 = 1 ;
-	    if (width<0) dx2 = -1 ; else if (width>0) dx2 = 1 ;
-	    int longest = Math.abs(width) ;
-	    int shortest = Math.abs(height) ;
-	    if (longest<=shortest) {
-	        longest = Math.abs(height) ;
-	        shortest = Math.abs(width) ;
-	        if (height<0) dy2 = -1 ; 
-	        else if (height>0) dy2 = 1 ;
-	        dx2 = 0 ;            
-	    }
-	    int numerator = longest/2;
-	    for (int i=0;i<=longest;i++) {
-	        palette.showPoint(x,y) ;
-	        numerator += shortest ;
-	        if (numerator>=longest) {
-	            numerator -= longest ;
-	            x += dx1 ;
-	            y += dy1 ;
-	        } else {
-	            x += dx2 ;
-	            y += dy2 ;
-	        }
-	    }
-	   
+
+	    arrowLine = new Line(startX, startY, endX, endY, palette);
+	    arrowLine.draw(palette, "");
+	    
 	    if (endY < startY){
 	    	modifier = "up";
-	    	Triangle pointer = new Triangle(endX-6, endY,12,12,palette);
+	    	pointer = new Triangle(endX-6, endY,12,12,palette);
 	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endY > startY) {
 	    	modifier = "down";
-	    	Triangle pointer = new Triangle(endX - 6, endY, 12, 12,palette);
+	    	pointer = new Triangle(endX - 6, endY, 12, 12,palette);
 	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endX < startX) {
 	    	modifier = "left";
-	    	Triangle pointer = new Triangle(endX, endY + 6, 12, 12,palette);
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
 	    	pointer.draw(palette, modifier);
 	    }
 	    else if (endX > startX) {
 	    	modifier = "right";
-	    	Triangle pointer = new Triangle(endX, endY + 6, 12, 12,palette);
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
 	    	pointer.draw(palette, modifier);
 	    }
 	    
-	    
+	    endY += Math.abs(pointer.getStartY() - pointer.getEndY());
+	    endX += Math.abs(pointer.getEndX() - pointer.getStartX());
 	}//draw
 
 
 	
 	public void erase(DrawingPalette palette) {
-		
-		
+		arrowLine.erase(palette);
+		pointer.erase(palette);
 	}
 	
 	public int getStartX() {

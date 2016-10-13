@@ -1,34 +1,78 @@
 package drawings2;
-import csci348.drawings.*;
-public class Circle extends SimpleDrawProgram{
-	public Circle(int startX, int startY, int radius) {
-		super();
+public class Circle extends Shape{
+	public Circle(int startX, int startY, int radius, DrawingPalette palette) {
+		super(palette);
 		this.startX = startX;
 		this.startY = startY;
 		this.radius = radius;
+		endX = startX  + 2*radius;
+		endY =  startY + 2*radius;
 	}
 
 
-	private int startX;
-	private int startY;
-	private int radius;
+	int startX;
+	int startY;
+	int radius;
 	int x;
 	int y;	
-	
-	public void drawCircle(SimpleDrawing palette) {
+	int endX;
+	int endY;
+
+	@Override
+	public void draw(DrawingPalette palette, String modifier) {
+		palette.shapes.add(this);
+		Line newLine = new Line(startX, startY, startX + 2*radius, startY + 2*radius, palette);
+		newLine.draw(palette, "");
 		int midX = startX + radius;
 		int midY = startY + radius;
+		
 		for (int i = startX; i < startX+(2*radius); i++) {
 			for (int j=startY; j< startY+(2*radius); j++) {
-				//a^2 + b^2 == c^2
 				int a=(midX-i);
 				int b=(midY-j);
 				double c=Math.sqrt((Math.pow(a, 2)+Math.pow(b, 2)));
 				 if(c<=radius&&c>radius-1){
 					 palette.showPoint(i,j);
+				}//if
+			}//for j
+		}//for i
+		
+	}//draw
+
+	public void erase(DrawingPalette palette) {
+		int midX = startX + radius;
+		int midY = startY + radius;
+		for (int i = startX; i < startX+(2*radius); i++) {
+			for (int j=startY; j< startY+(2*radius); j++) {
+				int a=(midX-i);
+				int b=(midY-j);
+				double c=Math.sqrt((Math.pow(a, 2)+Math.pow(b, 2)));
+				 if(c<=radius&&c>radius-1){
+					 palette.hidePoint(i,j);
 				}
 			}
 		}
+		
+	}
+
+	@Override
+	public int getStartX() {
+		return startX;
+	}
+
+	@Override
+	public int getStartY() {
+		return startY;
+	}
+
+	@Override
+	public int getEndX() {
+		return startX  + 2* radius;
+	}
+
+	@Override
+	public int getEndY() {
+		return startY  + 2* radius;
 	}
 
 }

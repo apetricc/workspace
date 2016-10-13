@@ -9,6 +9,10 @@ public class Triangle extends Shape{
 	private int startY;
 	private int height;
 	private int width;
+	private Line line1;
+	private Line line2;
+	private Line line3;
+	private int endY;
 	
 	public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
 		super(palette);
@@ -25,6 +29,7 @@ public class Triangle extends Shape{
 	 * @param draw
 	 */
 	public void draw(DrawingPalette palette, String modifier) {
+		palette.shapes.add(this);
 		int aX = startX;
 		int aY = startY;
 		int bX = startX;
@@ -36,35 +41,44 @@ public class Triangle extends Shape{
 			bY = startY + height;
 			cX = startX + width;
 			cY = startY;		
+			//y coordinates off when drawn down for some reason
+			setEndY(startY - height);
 		} // down
-		if (modifier.toLowerCase() == "left") {
+		if (modifier.equalsIgnoreCase("left")) {
 			bX = startX - width;
 			bY = startY - height / 2;
 			cX = startX;
 			cY = startY - height;
+			endY = startY - height;
 		} // left
-		if (modifier.toLowerCase() == "right") {
+		if (modifier.equalsIgnoreCase("right")) {
 			bX = startX + width;
 			bY = startY - height / 2;
 			cX = startX;
 			cY = startY - height;
+			endY = startY - height;
 		} // right
 		if (modifier.equalsIgnoreCase("up") || modifier.isEmpty()){
 			bX = startX + width / 2;
 			bY = startY - height;
 			cX = startX + width;
 			cY = startY;
+			endY = startY - height;
 		} // up
-		Line line1 = new Line(aX, aY, bX, bY, palette);
-		Line line2 = new Line(bX, bY, cX, cY, palette);
-		Line line3 = new Line(aX, aY, cX, cY, palette);
+		System.out.println("after the control flow in triangle, startY is: " + startY + " and endY is : " + endY);
+		line1 = new Line(aX, aY, bX, bY, palette);
+		line2 = new Line(bX, bY, cX, cY, palette);
+		line3 = new Line(cX, cY, aX, aY, palette);
 		line1.draw(palette, modifier);
 		line2.draw(palette, modifier);
 		line3.draw(palette, modifier);
 	}
 
 	public void erase(DrawingPalette palette) {
-
+		//palette.shapes.remove(this);
+		line1.erase(palette);
+		line2.erase(palette);
+		line3.erase(palette);
 	}
 
 	public int getStartX() {
@@ -80,6 +94,9 @@ public class Triangle extends Shape{
 	}
 
 	public int getEndY() {
-		return startY - height;
+		return endY;
 	}
-}// Triangle
+	public void setEndY(int newY) {
+		endY = newY;
+	}
+	}// Triangle

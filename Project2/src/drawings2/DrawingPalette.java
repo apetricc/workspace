@@ -18,13 +18,17 @@ public class DrawingPalette extends SimpleDrawing{
 		super();
 		this.shapes = shapes;
 	}
-
+/**
+ * why don't I just hide a 10*10 area around where the mouse is clicked??  Spot erase.
+ */
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
 		if (e != null)
 			System.out.println("The mouse is at: " + e.getPoint());
 			int x = e.getX();
 			int y = e.getY();
+			
 			int startX;
 			int endX;
 			int startY;
@@ -34,31 +38,31 @@ public class DrawingPalette extends SimpleDrawing{
 				endX = shapes.get(i).getEndX();
 				startY = shapes.get(i).getStartY();
 				endY = shapes.get(i).getEndY();
-				if ((x > startX && x < endX )&&(y < startY && y > endY))  {
-					System.out.println("Clicked inside a shape!  Should be erasing right now! \n\n ");
+				if ((x > startX && x < endX )&&((y < startY && y > endY) || (y > startY && y < endY)))  {
+					System.out.println("The array list shapes was this long: " + shapes.size());
+					System.out.println("\n\nClicked inside a shape!  Should be erasing right now! ");
 					System.out.println("startX: " + startX + " \n"
 							+ "startY: " + startY + "\n"
 							+ " endX: " + endX + " \n"									
 											+ "endY: " + endY);
 					System.out.println("The click that registered to erase was: " + e.getPoint());
 					shapes.get(i).erase(this);
+					shapes.remove(this);
+					System.out.println("The array list shapes is now this long: " + shapes.size());
+
 				}
 			}
 	}
-
-	public void componentResized(java.awt.event.ComponentEvent event, DrawingPalette palette, String modifier) {
-		if (event!=null) shapes.get(shapes.indexOf(this)).draw(palette, modifier);
-	}
 	
-	public void eraseLast() {
-		if (!(shapes.isEmpty())) {
-			try {
-				(shapes.get(shapes.size() - 1)).erase(this);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else
-			System.out.println("Diagram array list is empty--no boxes to erase.");
-	}
-
+	public void componentResized(ComponentEvent event, DrawingPalette palette) {
+		if (event!=null) {
+			System.out.println("Window resized, should be redrawing window from linked list now...");
+			shapes.get(shapes.indexOf(this)).draw(palette, "");
+		}
+	}//componentResized
+	
+//	public void setForegroundColor(java.awt.Color color) {
+//		setForegroundColor(color);
+//	}
+	
 }

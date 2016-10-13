@@ -1,0 +1,9 @@
+package drawings2;
+
+public class UpTriangle {
+
+	public UpTriangle() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
