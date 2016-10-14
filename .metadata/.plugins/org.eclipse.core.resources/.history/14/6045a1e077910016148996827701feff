@@ -67,13 +67,12 @@ public class DrawingPalette extends SimpleDrawing{
 		if (e!=null && shapes != null) {
 			System.out.println("Window resized, should be redrawing window from linked list now...");
 			int numShapes = shapes.size();
-//			for (Shape s : shapes) {
-//				s.draw(this, "");
-//			}
-			for (int i = 0; i < numShapes; i++) {
-				if (!shapes.isEmpty())
-				shapes.get(i).draw(this, "");
+			for (Shape s : shapes) {
+				s.draw(this, "");
 			}
+//			for (int i = 0; i < numShapes; i++) {
+//				shapes.get(i).draw(this, "");
+//			}
 //			
 			
 		}

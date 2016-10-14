@@ -71,7 +71,6 @@ public class DrawingPalette extends SimpleDrawing{
 //				s.draw(this, "");
 //			}
 			for (int i = 0; i < numShapes; i++) {
-				if (!shapes.isEmpty())
 				shapes.get(i).draw(this, "");
 			}
 //			
