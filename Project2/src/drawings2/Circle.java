@@ -1,76 +1,77 @@
 package drawings2;
-public class Circle extends Shape{
-	public Circle(int startX, int startY, int radius, DrawingPalette palette) {
-		super(palette);
-		this.startX = startX;
-		this.startY = startY;
-		this.radius = radius;
-		endX = startX  + 2*radius;
-		endY =  startY + 2*radius;
-	}
+
+public class Circle extends Shape {
+    public Circle(int startX, int startY, int radius, DrawingPalette palette) {
+        super(palette);
+        this.startX = startX;
+        this.startY = startY;
+        this.radius = radius;
+        endX = startX + 2 * radius;
+        endY = startY + 2 * radius;
+    }
 
 
-	int startX;
-	int startY;
-	int radius;
-	int x;
-	int y;	
-	int endX;
-	int endY;
+    int startX;
+    int startY;
+    int radius;
+    int x;
+    int y;
+    int endX;
+    int endY;
 
-	@Override
-	public void draw(DrawingPalette palette, String modifier) {
-		int midX = startX + radius;
-		int midY = startY + radius;
-		
-		for (int i = startX; i < startX+(2*radius); i++) {
-			for (int j=startY; j< startY+(2*radius); j++) {
-				int a=(midX-i);
-				int b=(midY-j);
-				double c=Math.sqrt((Math.pow(a, 2)+Math.pow(b, 2)));
-				 if(c<=radius&&c>radius-1){
-					 palette.showPoint(i,j);
-				}//if
-			}//for j
-		}//for i
-		
-	}//draw
+    @Override
+    public void draw(DrawingPalette palette, String modifier) {
+        int midX = startX + radius;
+        int midY = startY + radius;
 
-	public void erase(DrawingPalette palette) {
-		//palette.shapes.remove(this);
-		int midX = startX + radius;
-		int midY = startY + radius;
-		for (int i = startX; i < startX+(2*radius); i++) {
-			for (int j=startY; j< startY+(2*radius); j++) {
-				int a=(midX-i);
-				int b=(midY-j);
-				double c=Math.sqrt((Math.pow(a, 2)+Math.pow(b, 2)));
-				 if(c<=radius&&c>radius-1){
-					 palette.hidePoint(i,j);
-				}
-			}
-		}
-		
-	}
+        for (int i = startX; i < startX + (2 * radius); i++) {
+            for (int j = startY; j < startY + (2 * radius); j++) {
+                int a = (midX - i);
+                int b = (midY - j);
+                double c = Math.sqrt((Math.pow(a, 2) + Math.pow(b, 2)));
+                if (c <= radius && c > radius - 1) {
+                    palette.showPoint(i, j);
+                }//if
+            }//for j
+        }//for i
 
-	@Override
-	public int getStartX() {
-		return startX;
-	}
+    }//draw
 
-	@Override
-	public int getStartY() {
-		return startY;
-	}
+    public void erase(DrawingPalette palette) {
+        //palette.shapes.remove(this);
+        int midX = startX + radius;
+        int midY = startY + radius;
+        for (int i = startX; i < startX + (2 * radius); i++) {
+            for (int j = startY; j < startY + (2 * radius); j++) {
+                int a = (midX - i);
+                int b = (midY - j);
+                double c = Math.sqrt((Math.pow(a, 2) + Math.pow(b, 2)));
+                if (c <= radius && c > radius - 1) {
+                    palette.hidePoint(i, j);
+                }
+            }
+        }
 
-	@Override
-	public int getEndX() {
-		return startX  + 2* radius;
-	}
+    }
 
-	@Override
-	public int getEndY() {
-		return startY  + 2* radius;
-	}
+    @Override
+    public int getStartX() {
+        return startX;
+    }
+
+    @Override
+    public int getStartY() {
+        return startY;
+    }
+
+    @Override
+    public int getEndX() {
+        return startX + 2 * radius;
+    }
+
+    @Override
+    public int getEndY() {
+        return startY + 2 * radius;
+    }
 
 }
