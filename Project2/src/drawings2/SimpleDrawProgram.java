@@ -16,9 +16,8 @@ public class SimpleDrawProgram {
 
 
     /**
-     * MAIN METHOD!!
+     * MAIN METHOD DOES SOME TESTING
      *
-     * @param args
      */
     public static void main(String[] args) {
         System.out.println("Draw some stuff: ");
