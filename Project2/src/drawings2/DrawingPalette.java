@@ -55,17 +55,33 @@ public class DrawingPalette extends SimpleDrawing {
             endY = shapes.get(i).getEndY();
             System.out.println("Clicked! --> coords: " + x + " " + y);
 
-            if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
-                // shapes.get(i).erase(this);
-                shapes.remove(i);
-                this.hideAllPoints();
-                System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
-                for (Shape s : shapes) s.draw(this);
+
+            if (!shapes.isEmpty()) {
+                if ((shapes.get(i).getShape().equalsIgnoreCase("line") || shapes.get(i).getShape().equalsIgnoreCase("arrow")) && (shapes.get(i).getEndX() == shapes.get(i).getStartX())) {
+                    if (((x >= startX - 2 && x <= endX + 2) || (x <= startX + 2 && x >= endX - 2)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
+                        shapes.remove(i);
+                        this.hideAllPoints();
+                        System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                        for (Shape s : shapes) s.draw(this);
+                    }
+                } else if ((shapes.get(i).getShape().equalsIgnoreCase("line") || shapes.get(i).getShape().equalsIgnoreCase("arrow")) && (shapes.get(i).getEndY() == shapes.get(i).getStartY())) {
+                    if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY + 2 && y >= endY - 2) || (y >= startY - 2 && y <= endY + 2))) {
+                        shapes.remove(i);
+                        this.hideAllPoints();
+                        System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                        for (Shape s : shapes) s.draw(this);
+                    }
+                } else if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
+                    // shapes.get(i).erase(this);
+                    shapes.remove(i);
+                    this.hideAllPoints();
+                    System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                    for (Shape s : shapes) s.draw(this);
+                }
+
+
             }
-
-
         }
-
 
 
 

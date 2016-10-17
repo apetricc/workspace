@@ -133,6 +133,18 @@ public class Line extends Shape {
         return endY;
     }
 
+//    public void setStartX(int newStartX) {
+//        startX = newStartX;
+//    }
+//    public void setStartX(int newStartX) {
+//        startX = newStartX;
+//    }
+//    public void setStartX(int newStartX) {
+//        startX = newStartX;
+//    }
+//    public void setStartX(int newStartX) {
+//        startX = newStartX;
+//    }
     @Override
     public String getShape() {
         return "Line";

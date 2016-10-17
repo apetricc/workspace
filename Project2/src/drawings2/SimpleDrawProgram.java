@@ -33,48 +33,48 @@ public class SimpleDrawProgram {
         connect.draw(palette);
         palette.addShape(connect);
 
-        Line line = new Line(400, 400, 550, 400, palette);
+        Line line = new Line(400, 400, 400, 500, palette);
         line.draw(palette);
         palette.addShape(line);
         Arrow testArrow = new Arrow(300, 300, 150, 300, palette);
         testArrow.draw(palette);
         palette.addShape(testArrow);
-//
-//
-//        Diamond d = new Diamond(300, 300, 50, 50, palette);
-//        d.draw(palette);
-//        palette.addShape(d);
-//        System.out.println(d.getShape());
-//        palette.setBackgroundColor(Color.BLACK);
-//        palette.setForegroundColor(Color.RED);
-//        System.out.println(palette.shapes.toString());
-//        palette.showPoint(300, 300);
-//
-//        Triangle newTri = new Triangle(350, 175, 10, 12, palette, "left");
-//        newTri.draw(palette);
-//        palette.addShape(newTri);
-//
-//        Triangle upTri = new Triangle(150, 150, 22, -22, palette, "up");
-//        upTri.draw(palette);
-//        palette.addShape(upTri);
-//        Triangle downTri = new Triangle(400, 150, 22, 22, palette, "down");
-//        downTri.draw(palette);
-//        palette.addShape(downTri);
-//        Arrow leftArrow = new Arrow(200, 200, 100, 200, palette);
-//        leftArrow.draw(palette);
-//        palette.addShape(leftArrow);
-//        Arrow rightArrow = new Arrow(400, 100, 500, 100, palette);
-//        rightArrow.draw(palette);
-//        palette.addShape(rightArrow);
-//        Arrow downArrow = new Arrow(400, 400, 400, 500, palette);
-//        downArrow.draw(palette);
-//        palette.addShape(downArrow);
-//        Arrow upArrow = new Arrow(200, 200, 200, 150, palette);
-//        upArrow.draw(palette);
-//        palette.addShape(upArrow);
-//        Circle cir = new Circle(600, 600, 50, palette);
-//        cir.draw(palette);
-//        palette.addShape(cir);
+
+
+        Diamond d = new Diamond(300, 300, 50, 50, palette);
+        d.draw(palette);
+        palette.addShape(d);
+        System.out.println(d.getShape());
+        palette.setBackgroundColor(Color.BLACK);
+        palette.setForegroundColor(Color.RED);
+        System.out.println(palette.shapes.toString());
+        palette.showPoint(300, 300);
+
+        Triangle newTri = new Triangle(350, 175, 10, 12, palette, "left");
+        newTri.draw(palette);
+        palette.addShape(newTri);
+
+        Triangle upTri = new Triangle(150, 150, 22, -22, palette, "up");
+        upTri.draw(palette);
+        palette.addShape(upTri);
+        Triangle downTri = new Triangle(400, 150, 22, 22, palette, "down");
+        downTri.draw(palette);
+        palette.addShape(downTri);
+        Arrow leftArrow = new Arrow(200, 200, 100, 200, palette);
+        leftArrow.draw(palette);
+        palette.addShape(leftArrow);
+        Arrow rightArrow = new Arrow(400, 100, 500, 100, palette);
+        rightArrow.draw(palette);
+        palette.addShape(rightArrow);
+        Arrow downArrow = new Arrow(400, 400, 400, 500, palette);
+        downArrow.draw(palette);
+        palette.addShape(downArrow);
+        Arrow upArrow = new Arrow(200, 200, 200, 150, palette);
+        upArrow.draw(palette);
+        palette.addShape(upArrow);
+        Circle cir = new Circle(600, 600, 50, palette);
+        cir.draw(palette);
+        palette.addShape(cir);
 
 
     }// main
