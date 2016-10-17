@@ -1,15 +1,17 @@
 package drawings2;
 
 public interface ShapeInterface {
-    public void draw(DrawingPalette palette, String modifier);
+    void draw(DrawingPalette palette);
 
-    public void erase(DrawingPalette palette);
+    void erase(DrawingPalette palette);
 
-    public int getStartX();
+   int getStartX();
 
-    public int getStartY();
+   int getStartY();
 
-    public int getEndX();
+   int getEndX();
 
-    public int getEndY();
+   int getEndY();
+
+   String getShape();
 }

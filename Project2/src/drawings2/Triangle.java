@@ -1,8 +1,5 @@
 package drawings2;
 
-import csci348.drawings.SimpleDrawing;
-import drawings2.SimpleDrawProgram;
-
 public class Triangle extends Shape {
 
     int startX;
@@ -12,14 +9,35 @@ public class Triangle extends Shape {
     Line line1;
     Line line2;
     Line line3;
+    int endX;
     int endY;
+    String direction;
+    int aX;
+    int aY;
+    int bX;
+    int bY;
+    int cX;
+    int cY;
 
-    public Triangle(int startX, int startY, int height, int width, DrawingPalette palette) {
+    /**
+     * Triangle is an object that can be drawn on a DrawingPalette window.
+     * @param startX the starting x coordinate for drawing the Triangle
+     * @param startY the starting y coordinate for drawing the Triangle
+     * @param width the width of the triangle
+     * @param height the height of the triangle--use a negative height to draw upwards, a positive height for downwards
+     * @param palette the DrawingPalette window the Triangle object can be drawn on
+     * @param direction the direction the Triangle will point
+     */
+
+    public Triangle(int startX, int startY, int width, int height, DrawingPalette palette, String direction) {
         super(palette);
         this.startX = startX;
         this.startY = startY;
         this.height = height;
         this.width = width;
+        endX = startX + width;
+        endY = startY + height;
+        this.direction = direction;
     }
 
 //
@@ -28,55 +46,65 @@ public class Triangle extends Shape {
      * drawUpTriangle draws a Triangle object pointing upwards on the SimpleDrawing window
      *
      * @param palette the SimpleDrawing where the Triangle will be drawn
-     * @param draw
+     *
      */
-    public void draw(DrawingPalette palette, String modifier) {
-        int aX = startX;
-        int aY = startY;
-        int bX = startX;
-        int bY = startY;
-        int cX = startX;
-        int cY = startY;
-        if (modifier.equalsIgnoreCase("down")) {
-            bX = startX + width / 2;
-            bY = startY + height;
-            cX = startX + width;
-            cY = startY;
-            //y coordinates off when drawn down for some reason
-            setEndY(startY - height);
-        } // down
-        if (modifier.equalsIgnoreCase("left")) {
-            bX = startX - width;
-            bY = startY - height / 2;
+    public void draw(DrawingPalette palette) {
+
+        if (direction.equalsIgnoreCase("right")) {
+            aX = startX;
+            aY = startY;
+            bX = aX + Math.abs(width);
+            bY = aY - height/2;
+            cX = aX;
+            cY = aY - height;
+            endX = bX;
+        }
+        else if (direction.equalsIgnoreCase("left")) {
+            aX = startX;
+            aY = startY;
+            bX = startX - Math.abs(width);
+            bY = startY - height/2;
             cX = startX;
-            cY = startY - height;
-            endY = startY - height;
-        } // left
-        if (modifier.equalsIgnoreCase("right")) {
-            bX = startX + width;
-            bY = startY - height / 2;
-            cX = startX;
-            cY = startY - height;
-            endY = startY - height;
-        } // right
-        if (modifier.equalsIgnoreCase("up") || modifier.isEmpty()) {
-            bX = startX + width / 2;
-            bY = startY - height;
-            cX = startX + width;
-            cY = startY;
-            endY = startY - height;
-        } // up
-        System.out.println("after the control flow in triangle, startY is: " + startY + " and endY is : " + endY);
-        line1 = new Line(aX, aY, bX, bY, palette);
-        line2 = new Line(bX, bY, cX, cY, palette);
-        line3 = new Line(cX, cY, aX, aY, palette);
-        line1.draw(palette, modifier);
-        line2.draw(palette, modifier);
-        line3.draw(palette, modifier);
+            cY = aY - height;
+            endX = bX;
+            endY = cY;
+        }
+        else if (direction.equalsIgnoreCase("up") || direction.equalsIgnoreCase("down")){
+              aX = startX;
+              aY = startY;
+              bX = startX + width;
+            bY = startY;
+            cX = startX + width/2;
+            cY = startY + height;
+
+        }
+        endY = startY + height;
+//        System.out.println("These are the coords of the triangle; \n"
+//
+//
+//                +"startX: " + startX
+//                +"\nendX: " + getEndX()
+//                +"\nstartY: " + startY
+//                +"\nendY: " + getEndY()
+//                +"\naX: " +aX
+//                + "\naY: " + aY
+//        + "\nbX: " + bX
+//        + "\nbY: "+bY
+//        + "\ncX: " +cX
+//        + "\ncY: " +cY
+//        + "\nwidth: " + width
+//        + "\nheight: " + height);
+//        System.out.println("after the control flow in triangle, startY is: " + startY + " and endY is : " + endY);
+            line1 = new Line(aX, aY, bX, bY, palette);
+            line2 = new Line(bX, bY, cX, cY, palette);
+            line3 = new Line(cX, cY, aX, aY, palette);
+            line1.draw(palette);
+            line2.draw(palette);
+            line3.draw(palette);
+
     }
 
     public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
         line1.erase(palette);
         line2.erase(palette);
         line3.erase(palette);
@@ -87,7 +115,7 @@ public class Triangle extends Shape {
     }
 
     public int getEndX() {
-        return startX + width;
+        return endX;
     }
 
     public int getStartY() {
@@ -98,7 +126,12 @@ public class Triangle extends Shape {
         return endY;
     }
 
-    public void setEndY(int newY) {
-        endY = newY;
+    @Override
+    public String getShape() {
+        return "Triangle";
     }
+
+    //public void setEndY(int newY) {
+      //  endY = newY;
+   // }
 }// Triangle

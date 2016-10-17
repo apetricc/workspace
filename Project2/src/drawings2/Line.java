@@ -22,7 +22,7 @@ public class Line extends Shape {
      *
      * @param palette The Drawing object that the line will be shown in.
      */
-    public void draw(DrawingPalette palette, String modifier) {
+    public void draw(DrawingPalette palette) {
         int width = endX - startX;
         int height = endY - startY;
         int x = startX;
@@ -70,7 +70,6 @@ public class Line extends Shape {
     }// draw
 
     public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
         int width = endX - startX;
         int height = endY - startY;
         int x = startX;
@@ -132,6 +131,12 @@ public class Line extends Shape {
 
     public int getEndY() {
         return endY;
+    }
+
+    @Override
+    public String getShape() {
+        return "Line";
+
     }
 
 }

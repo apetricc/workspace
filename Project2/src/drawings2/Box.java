@@ -2,20 +2,22 @@ package drawings2;
 
 public class Box extends Shape {
 
-    private int startX;
-    private int startY;
-    private int height;
-    private int width;
+    int startX;
+    int startY;
+    int height;
+    int width;
+    int endX;
+    int endY;
     int xConnect1;
     int yConnect1;
     int xConnect2;
     int yConnect2;
     int xJoint;
     int yJoint;
-    Line hLine1;
-    Line hLine2;
-    Line vLine1;
-    Line vLine2;
+    Line bottom;
+    Line top;
+    Line left;
+    Line right;
 
     /**
      * Public constructor for the Box class
@@ -31,6 +33,8 @@ public class Box extends Shape {
         this.startY = startY;
         this.width = width;
         this.height = height;
+        endX = startX + width;
+        endY = startY + height;
     }// Box
 
     /**
@@ -40,16 +44,59 @@ public class Box extends Shape {
      * @param palette the Drawing within which the Box will appear
      * @param draw    the DrawProgram within which the Box will appear
      */
-    public void draw(DrawingPalette palette, String modifier) {
-        hLine1 = new Line(startX, startY, startX + width, startY, palette);
-        hLine2 = new Line(startX, startY - height, startX + width, startY - height, palette);
-        hLine1.draw(palette, modifier);
-        hLine2.draw(palette, modifier);
-        vLine1 = new Line(startX, startY, startX, startY - height, palette);
-        vLine2 = new Line(startX + width, startY, startX + width, startY - height, palette);
-        vLine1.draw(palette, modifier);
-        vLine2.draw(palette, modifier);
+    public void draw(DrawingPalette palette) {
+        int aX = startX;
+        int aY = startY;
+        int bX = aX + width;
+        int bY = startY;
+        int cX = aX + width;
+        int cY = aY + height;
+        int dX = aX;
+        int dY = aY + height;
+        bottom = new Line(aX, aY, bX, bY, palette);
+        right = new Line(bX, bY, cX, cY, palette);
+        top = new Line(cX, cY, dX, dY, palette);
+        left = new Line(dX, dY, aX, aY, palette);
+        bottom.draw(palette);
+        top.draw(palette);
+        left.draw(palette);
+        right.draw(palette);
     }// draw
+
+    public void erase(DrawingPalette palette) {
+        bottom.erase(palette);
+        top.erase(palette);
+        left.erase(palette);
+        right.erase(palette);
+    }// erase
+
+    public int getStartX() {
+        return startX;
+    }
+
+    public int getEndX() {
+        return endX;
+    }
+
+    public int getStartY() {
+        return startY;
+    }
+
+    public int getEndY() {
+        return endY;
+    }
+
+    @Override
+    public String getShape() {
+        return "Box"
+                +"\nstartX: " + startX
+                +"\nstartY: " + startY
+                +"\nendX: " + endX
+                +"\nendY: " + endY
+                +"\nwidth: " + width
+                +"\nheight: " + height;
+
+    }
 
     /**
      * connectboxDiagram draws connecting lines between two Box objects
@@ -88,9 +135,9 @@ public class Box extends Shape {
         Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1, palette);
         Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2, palette);
         Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2, palette);
-        vLine1.draw(palette, modifier);
-        hLine1.draw(palette, modifier);
-        hLine2.draw(palette, modifier);
+        vLine1.draw(palette);
+        hLine1.draw(palette);
+        hLine2.draw(palette);
     }// rightAndNotAdjacent
 
     private void leftAndNotAdjacent(Box box2, DrawingPalette palette, String modifier) {
@@ -102,9 +149,9 @@ public class Box extends Shape {
         Line hLine1 = new Line(xConnect1, yConnect1, xJoint, yConnect1, palette);
         Line vLine1 = new Line(xJoint, yConnect1, xJoint, yConnect2, palette);
         Line hLine2 = new Line(xJoint, yConnect2, xConnect2, yConnect2, palette);
-        vLine1.draw(palette, modifier);
-        hLine1.draw(palette, modifier);
-        hLine2.draw(palette, modifier);
+        vLine1.draw(palette);
+        hLine1.draw(palette);
+        hLine2.draw(palette);
     }// leftAndNotAdjacent
 
     private void right(Box box2, DrawingPalette palette, String modifier) {
@@ -112,7 +159,7 @@ public class Box extends Shape {
         yConnect1 = this.startY + this.height / 2;
         xConnect2 = box2.startX + box2.width;
         Line line1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1, palette);
-        line1.draw(palette, modifier);
+        line1.draw(palette);
     }// right
 
     private void left(Box box2, DrawingPalette palette, String modifier) {
@@ -120,7 +167,7 @@ public class Box extends Shape {
         yConnect1 = this.startY + this.height / 2;
         xConnect2 = box2.startX;
         Line hLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect1, palette);
-        hLine1.draw(palette, modifier);
+        hLine1.draw(palette);
     }// left
 
     private void above(Box box2, DrawingPalette palette, String modifier) {
@@ -128,7 +175,7 @@ public class Box extends Shape {
         yConnect1 = this.startY + this.height;
         yConnect2 = box2.startY;
         Line vLine1 = new Line(xConnect1, yConnect1, xConnect1, yConnect2, palette);
-        vLine1.draw(palette, modifier);
+        vLine1.draw(palette);
 
     }// above
 
@@ -138,7 +185,7 @@ public class Box extends Shape {
         xConnect2 = box2.startX + box2.width / 2;
         yConnect2 = box2.startY + height;
         Line vLine1 = new Line(xConnect1, yConnect1, xConnect2, yConnect2, palette);
-        vLine1.draw(palette, modifier);
+        vLine1.draw(palette);
 
     }// below
 
@@ -148,28 +195,6 @@ public class Box extends Shape {
      * @param palette the SimpleDrawing within which the Box will be erased
      * @param draw    the DrawProgram within which the Box will be erased
      */
-    public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
-        hLine1.erase(palette);
-        hLine2.erase(palette);
-        vLine1.erase(palette);
-        vLine2.erase(palette);
-    }// erase
 
-    public int getStartX() {
-        return startX;
-    }
-
-    public int getEndX() {
-        return startX + this.width;
-    }
-
-    public int getStartY() {
-        return startY;
-    }
-
-    public int getEndY() {
-        return startY - this.height;
-    }
 
 }// Box

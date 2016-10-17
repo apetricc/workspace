@@ -19,31 +19,30 @@ public class Diamond extends Shape {
         this.startY = startY;
         this.width = width;
         this.height = height;
+        endX = startX + width;
+        endY = startY + height;
     }
-
-    public void draw(DrawingPalette palette, String modifier) {
+//startX, startY at lower left of box area that diamond resides within (for erasing purposes)
+    public void draw(DrawingPalette palette) {
         int aX = startX;
-        int aY = startY;
-        int bX = startX + width / 2;
-        endX = bX;
-        int bY = startY - height / 2;
-        endY = bY;
-        int cX = startX;
-        int cY = startY - height;
-        int dX = startX - width / 2;
-        int dY = startY - height / 2;
+        int aY = startY + height/2;
+        int bX = startX  + width / 2;
+        int bY = startY + height;
+        int cX = startX + width;
+        int cY = startY + height/2;
+        int dX = startX + width / 2;
+        int dY = startY;
         line1 = new Line(aX, aY, bX, bY, palette);
-        line2 = new Line(cX, cY, bX, bY, palette);
-        line3 = new Line(dX, dY, cX, cY, palette);
+        line2 = new Line(bX, bY, cX, cY, palette);
+        line3 = new Line(cX, cY, dX, dY, palette);
         line4 = new Line(dX, dY, aX, aY, palette);
-        line1.draw(palette, modifier);
-        line2.draw(palette, modifier);
-        line3.draw(palette, modifier);
-        line4.draw(palette, modifier);
+        line1.draw(palette);
+        line2.draw(palette);
+        line3.draw(palette);
+        line4.draw(palette);
     }
 
     public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
         line1.erase(palette);
         line2.erase(palette);
         line3.erase(palette);
@@ -55,7 +54,7 @@ public class Diamond extends Shape {
     }
 
     public int getEndX() {
-        return startX + width;
+        return endX;
     }
 
     public int getStartY() {
@@ -63,6 +62,18 @@ public class Diamond extends Shape {
     }
 
     public int getEndY() {
-        return startY - height;
+        return endY;
+    }
+
+    @Override
+    public String getShape() {
+        return "Diamond"
+                +"\nstartX: " + startX
+                +"\nstartY: " + startY
+                +"\nendX: " + endX
+                +"\nendY: " + endY
+                +"\nwidth: " + width
+                +"\nheight: " + height;
+
     }
 }

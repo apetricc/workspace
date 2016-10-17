@@ -6,48 +6,47 @@ public class Arrow extends Shape {
 	int endY;
 	Line arrowLine;
 	Triangle pointer;
+	int width;
+	int height;
 	public Arrow(int startX, int startY, int endX, int endY,DrawingPalette palette) {
 		super(palette);
 		this.startX = startX;
 		this.startY = startY;
 		this.endX = endX;
 		this.endY = endY;
+		int width = endX - startX;
+		int height = endY - startY;
 	}
 	
 
-	public void draw(DrawingPalette palette, String modifier) {
+	public void draw(DrawingPalette palette) {
 	    arrowLine = new Line(startX, startY, endX, endY, palette);
-	    arrowLine.draw(palette, "");
+	    arrowLine.draw(palette);
 	    
-	    if (endY < startY){
-	    	modifier = "up";
-	    	pointer = new Triangle(endX-6, endY,12,12,palette);
-	    	pointer.draw(palette, modifier);
+	    if (endY < startY && endX == startX){
+	    	pointer = new Triangle(endX-6, endY,12,-12,palette,"up");
+	    	pointer.draw(palette);
 	    }
-	    else if (endY > startY) {
-	    	modifier = "down";
-	    	pointer = new Triangle(endX - 6, endY, 12, 12,palette);
-	    	pointer.draw(palette, modifier);
+	    else if (endY > startY && endX == startX) {
+	    	pointer = new Triangle(endX - 6, endY, 12, 12,palette,"down");
+	    	pointer.draw(palette);
 	    }
-	    else if (endX < startX) {
-	    	modifier = "left";
-	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
-	    	pointer.draw(palette, modifier);
+	    else if (endX < startX && startY == endY) {
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette, "left");
+	    	pointer.draw(palette);
 	    }
-	    else if (endX > startX) {
-	    	modifier = "right";
-	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette);
-	    	pointer.draw(palette, modifier);
+	    else if (endX > startX && startY == endY) {
+	    	pointer = new Triangle(endX, endY + 6, 12, 12,palette, "right");
+	    	pointer.draw(palette);
 	    }
-	    
-	    endY += Math.abs(pointer.getStartY() - pointer.getEndY());
-	    endX += Math.abs(pointer.getEndX() - pointer.getStartX());
+	    width += pointer.width;
+		height += pointer.height;
+
 	}//draw
 
 
 	
 	public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
 		arrowLine.erase(palette);
 		pointer.erase(palette);
 	}
@@ -66,6 +65,12 @@ public class Arrow extends Shape {
 
 	public int getEndY() {
 		return endY;
+	}
+
+	@Override
+	public String getShape() {
+
+		return "Arrow";
 	}
 
 }

@@ -8,6 +8,8 @@ public class Parallelogram extends Shape {
     int startY;
     int height;
     int width;
+    int endX;
+    int endY;
     Line bottom;
     Line right;
     Line top;
@@ -19,9 +21,11 @@ public class Parallelogram extends Shape {
         this.startY = startY;
         this.height = height;
         this.width = width;
+        endX = startX + width;
+        endY = startY + height;
     }
 
-    public void draw(DrawingPalette palette, String modifier) {
+    public void draw(DrawingPalette palette) {
         int aX = startX;
         int aY = startY;
         int bX = startX + width;
@@ -34,10 +38,10 @@ public class Parallelogram extends Shape {
         right = new Line(bX, bY, cX, cY, palette);
         top = new Line(cX, cY, dX, dY, palette);
         left = new Line(dX, dY, aX, aY, palette);
-        bottom.draw(palette, modifier);
-        right.draw(palette, modifier);
-        top.draw(palette, modifier);
-        left.draw(palette, modifier);
+        bottom.draw(palette);
+        right.draw(palette);
+        top.draw(palette);
+        left.draw(palette);
 
     }//draw
 
@@ -55,7 +59,7 @@ public class Parallelogram extends Shape {
     }
 
     public int getEndX() {
-        return startX + width;
+        return endX;
     }
 
     public int getStartY() {
@@ -63,6 +67,18 @@ public class Parallelogram extends Shape {
     }
 
     public int getEndY() {
-        return startY - height;
+        return endY;
+    }
+
+    @Override
+    public String getShape() {
+        return "Parallelogram"
+                +"\nstartX: " + startX
+                +"\nstartY: " + startY
+                +"\nendX: " + endX
+                +"\nendY: " + endY
+                +"\nwidth: " + width
+                +"\nheight: " + height;
+
     }
 }
