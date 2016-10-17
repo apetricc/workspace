@@ -29,9 +29,18 @@ public class DrawingPalette extends SimpleDrawing {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        if (e != null)
-            System.out.println("The mouse is at: " + e.getPoint());
-        int x = e.getX();
+        if (e != null){
+//
+//                    for (Shape s : shapes) {
+//                        System.out.println("The mouse is at: " + e.getPoint()
+//                        + " \nvalid points between: " +s.getStartX() +" " + s.getStartY()
+//                    + "\n and: " +s.getEndX() +" "+s.getEndY());
+//        }
+
+
+
+            int x = e.getX();
+
         int y = e.getY();
 
         int startX;
@@ -39,40 +48,60 @@ public class DrawingPalette extends SimpleDrawing {
         int startY;
         int endY;
         for (int i = 0; i < shapes.size(); i++) {
-           // if (shapes.get(i).getShape().equalsIgnoreCase("line")|| shapes.get(i).getShape().equalsIgnoreCase("arrow")) {
-                startX = shapes.get(i).getStartX();
-                startY = shapes.get(i).getStartY();
-                endX = shapes.get(i).getEndX();
-                endY = shapes.get(i).getEndY();
-                //acknowledge that endX or endY could be less than the startX or startY
-                //1st quad
-                if (startX < endX && startY > endY) {
-                    if (x > startX && x < endX && y < startY && y > endY) {
-                        shapes.get(i).erase(this);
-                        shapes.remove(i);
-                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
+            // if (shapes.get(i).getShape().equalsIgnoreCase("line")|| shapes.get(i).getShape().equalsIgnoreCase("arrow")) {
+            startX = shapes.get(i).getStartX();
+            startY = shapes.get(i).getStartY();
+            endX = shapes.get(i).getEndX();
+            endY = shapes.get(i).getEndY();
+            System.out.println("Clicked! --> coords: " + x + " " + y);
 
-                    }
-                }
-                //2nd quad
-                if (startX > endX && startY > endY) {
-                    if (x < startX && x > endX && y > endY && y < startY) {
-                        shapes.get(i).erase(this);
-                        shapes.remove(i);
-                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
-                    }
+            if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
+                // shapes.get(i).erase(this);
+                shapes.remove(i);
+                this.hideAllPoints();
+                System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                for (Shape s : shapes) s.draw(this);
+            }
 
-                }
 
-                //3rd
-                if (startX > endX && startY < endY) {
-                    if (x < startX && x > endX && y > startY && y < endY) {
-                        shapes.get(i).erase(this);
-                        shapes.remove(shapes.get(i));
-                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
-                    }
-                }
-                //4th quad
+        }
+
+
+
+
+
+
+
+
+//                //acknowledge that endX or endY could be less than the startX or startY
+//                //1st quad
+//                if (startX < endX && startY > endY) {
+//                    if (x > startX && x < endX && y < startY && y > endY) {
+//                        shapes.get(i).erase(this);
+//                        shapes.remove(i);
+//                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
+//
+//                    }
+//                }
+//                //2nd quad
+//                if (startX > endX && startY > endY) {
+//                    if (x < startX && x > endX && y > endY && y < startY) {
+//                        shapes.get(i).erase(this);
+//                        shapes.remove(i);
+//                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
+//                    }
+//
+//                }
+//
+//                //3rd
+//                if (startX > endX && startY < endY) {
+//                    if (x < startX && x > endX && y > startY && y < endY) {
+//                        shapes.get(i).erase(this);
+//                        shapes.remove(shapes.get(i));
+//                        System.out.println("The array list shapes is now this long, after click event: " + shapes.size());
+//                    }
+//                }
+//                //4th quad
 //                if (startX < endX && startY < endY) {
 //                    if (x > startX && x < endX && y > startY && y < endY) {
 //                        shapes.get(i).erase(this);
@@ -81,6 +110,12 @@ public class DrawingPalette extends SimpleDrawing {
 //                    }
 //                }
 
+
+
+
+
+
+            //catch all below
 
                // for (Shape s : shapes) s.draw(this);
 //            } else {

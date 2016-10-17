@@ -23,15 +23,15 @@ public class SimpleDrawProgram {
     public static void main(String[] args) {
         System.out.println("Draw some stuff: ");
         DrawingPalette palette = new DrawingPalette(600, 600);
-//        Box testBox = new Box(600, 600, 75, -100, palette);
-//        testBox.draw(palette);
-//        palette.addShape(testBox);
-//        Box box2 = new Box(100, 160, 50, -50, palette);
-//        box2.draw(palette);
-//        palette.addShape(box2);
-//        Connector connect = new Connector(testBox, box2, palette);
-//        connect.draw(palette);
-//        palette.addShape(connect);
+        Box testBox = new Box(600, 600, 75, -100, palette);
+        testBox.draw(palette);
+        palette.addShape(testBox);
+        Box box2 = new Box(100, 160, 50, -50, palette);
+        box2.draw(palette);
+        palette.addShape(box2);
+        Connector connect = new Connector(testBox, box2, palette);
+        connect.draw(palette);
+        palette.addShape(connect);
 
         Line line = new Line(400, 400, 550, 400, palette);
         line.draw(palette);
@@ -39,8 +39,8 @@ public class SimpleDrawProgram {
         Arrow testArrow = new Arrow(300, 300, 150, 300, palette);
         testArrow.draw(palette);
         palette.addShape(testArrow);
-
-
+//
+//
 //        Diamond d = new Diamond(300, 300, 50, 50, palette);
 //        d.draw(palette);
 //        palette.addShape(d);
