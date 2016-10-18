@@ -29,6 +29,12 @@ public class DrawingPalette extends SimpleDrawing {
     @Override
     public void mouseClicked(MouseEvent e) {
 
+
+     //should add an interface method for 'get lines' to erase where the lines are in
+        //in a shape instead of the bounding box around it. esp for connectors etc. that
+        //take a lot of space!
+
+
         if (e != null){
 //
 //                    for (Shape s : shapes) {

@@ -13,5 +13,8 @@ public interface ShapeInterface {
 
    int getEndY();
 
+    int getWidth();
+    int getHeight();
+
    String getShape();
 }

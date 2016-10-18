@@ -6,12 +6,11 @@ public class Circle extends Shape {
     int startX;
     int startY;
     int radius;
-    int x;
-    int y;
     int endX;
     int endY;
     int width;
     int height;
+
     public Circle(int startX, int startY, int radius, DrawingPalette palette) {
         super(palette);
         this.startX = startX;
@@ -22,8 +21,6 @@ public class Circle extends Shape {
         width = startX + radius * 2;
         height = startY + radius * 2;
     }
-
-
 
 
     @Override
@@ -45,7 +42,6 @@ public class Circle extends Shape {
     }//draw
 
     public void erase(DrawingPalette palette) {
-        //palette.shapes.remove(this);
         int midX = startX + radius;
         int midY = startY + radius;
         for (int i = startX; i < startX + (2 * radius); i++) {
@@ -82,14 +78,24 @@ public class Circle extends Shape {
     }
 
     @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
     public String getShape() {
         return "Circle"
-                +"\nstartX: " + startX
-                +"\nstartY: " + startY
-                +"\nendX: " + endX
-                +"\nendY: " + endY
-                +"\nwidth: " + width
-                +"\nheight: " + height;
+                + "\nstartX: " + startX
+                + "\nstartY: " + startY
+                + "\nendX: " + endX
+                + "\nendY: " + endY
+                + "\nwidth: " + width
+                + "\nheight: " + height;
 
     }
 
