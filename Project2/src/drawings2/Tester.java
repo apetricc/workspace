@@ -1,8 +1,6 @@
 package drawings2;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 
 /**
@@ -12,7 +10,7 @@ import java.util.Scanner;
  * @contributions Had design discussions with Dr. Sheaffer, Kevin D., & Carole S.
  */
 
-public class SimpleDrawProgram {
+public class Tester {
 
 
     /**
@@ -44,10 +42,10 @@ public class SimpleDrawProgram {
         Diamond d = new Diamond(300, 300, 50, 50, palette);
         d.draw(palette);
         palette.addShape(d);
-        System.out.println(d.getShape());
+        //System.out.println(d.getShape());
         palette.setBackgroundColor(Color.BLACK);
         palette.setForegroundColor(Color.RED);
-        System.out.println(palette.shapes.toString());
+        //System.out.println(palette.shapes.toString());
         palette.showPoint(300, 300);
 
         Triangle newTri = new Triangle(350, 175, 10, 12, palette, "left");
@@ -75,10 +73,15 @@ public class SimpleDrawProgram {
         Circle cir = new Circle(600, 600, 50, palette);
         cir.draw(palette);
         palette.addShape(cir);
-
+        Parallelogram p = new Parallelogram(600, 150, 25, 25, palette);
+        p.draw(palette);
+        palette.addShape(p);
+        Connector connector2 = new Connector(upTri, d, palette);
+        connector2.draw(palette);
+        palette.addShape(connector2);
 
     }// main
 
 
-}// DrawProgram class
+}// Tester class
 

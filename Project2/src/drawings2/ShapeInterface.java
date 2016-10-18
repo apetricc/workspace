@@ -5,16 +5,17 @@ public interface ShapeInterface {
 
     void erase(DrawingPalette palette);
 
-   int getStartX();
+    int getStartX();
 
-   int getStartY();
+    int getStartY();
 
-   int getEndX();
+    int getEndX();
 
-   int getEndY();
+    int getEndY();
 
     int getWidth();
+
     int getHeight();
 
-   String getShape();
+    String getShape();
 }

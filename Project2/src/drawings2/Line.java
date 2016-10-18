@@ -1,6 +1,5 @@
 package drawings2;
 
-import csci348.drawings.SimpleDrawing;
 
 public class Line extends Shape {
     int startX;
@@ -133,18 +132,16 @@ public class Line extends Shape {
         return endY;
     }
 
-//    public void setStartX(int newStartX) {
-//        startX = newStartX;
-//    }
-//    public void setStartX(int newStartX) {
-//        startX = newStartX;
-//    }
-//    public void setStartX(int newStartX) {
-//        startX = newStartX;
-//    }
-//    public void setStartX(int newStartX) {
-//        startX = newStartX;
-//    }
+    @Override
+    public int getWidth() {
+        return endX - startX;
+    }
+
+    @Override
+    public int getHeight() {
+        return endY - startY;
+    }
+
     @Override
     public String getShape() {
         return "Line";

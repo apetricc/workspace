@@ -58,7 +58,7 @@ public class Arrow extends Shape {
     public int getEndY() {
         return endY;
     }
-//
+
     @Override
     public int getWidth() {
         return endX - startX;

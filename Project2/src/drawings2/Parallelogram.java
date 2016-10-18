@@ -1,6 +1,5 @@
 package drawings2;
 
-import csci348.drawings.SimpleDrawing;
 
 public class Parallelogram extends Shape {
 
@@ -31,9 +30,9 @@ public class Parallelogram extends Shape {
         int bX = startX + width;
         int bY = startY;
         int cX = (startX + width / 2 + width);
-        int cY = startY - height;
+        int cY = startY + height;
         int dX = startX + width / 2;
-        int dY = startY - height;
+        int dY = startY + height;
         bottom = new Line(aX, aY, bX, bY, palette);
         right = new Line(bX, bY, cX, cY, palette);
         top = new Line(cX, cY, dX, dY, palette);
@@ -46,7 +45,6 @@ public class Parallelogram extends Shape {
     }//draw
 
     public void erase(DrawingPalette palette) {
-//		palette.shapes.remove(this);
         bottom.erase(palette);
         top.erase(palette);
         right.erase(palette);
@@ -71,14 +69,24 @@ public class Parallelogram extends Shape {
     }
 
     @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
     public String getShape() {
         return "Parallelogram"
-                +"\nstartX: " + startX
-                +"\nstartY: " + startY
-                +"\nendX: " + endX
-                +"\nendY: " + endY
-                +"\nwidth: " + width
-                +"\nheight: " + height;
+                + "\nstartX: " + startX
+                + "\nstartY: " + startY
+                + "\nendX: " + endX
+                + "\nendY: " + endY
+                + "\nwidth: " + width
+                + "\nheight: " + height;
 
     }
 }

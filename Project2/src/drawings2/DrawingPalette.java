@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class DrawingPalette extends SimpleDrawing {
 
-    ArrayList<Shape> shapes = new ArrayList<Shape>();
+    ArrayList<Shape> shapes = new ArrayList<>();
 
     //only really need mouse click and if resized
 
@@ -29,22 +29,7 @@ public class DrawingPalette extends SimpleDrawing {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-
-     //should add an interface method for 'get lines' to erase where the lines are in
-        //in a shape instead of the bounding box around it. esp for connectors etc. that
-        //take a lot of space!
-
-
         if (e != null){
-//
-//                    for (Shape s : shapes) {
-//                        System.out.println("The mouse is at: " + e.getPoint()
-//                        + " \nvalid points between: " +s.getStartX() +" " + s.getStartY()
-//                    + "\n and: " +s.getEndX() +" "+s.getEndY());
-//        }
-
-
-
             int x = e.getX();
 
         int y = e.getY();
@@ -54,12 +39,12 @@ public class DrawingPalette extends SimpleDrawing {
         int startY;
         int endY;
         for (int i = 0; i < shapes.size(); i++) {
-            // if (shapes.get(i).getShape().equalsIgnoreCase("line")|| shapes.get(i).getShape().equalsIgnoreCase("arrow")) {
+
             startX = shapes.get(i).getStartX();
             startY = shapes.get(i).getStartY();
             endX = shapes.get(i).getEndX();
             endY = shapes.get(i).getEndY();
-            System.out.println("Clicked! --> coords: " + x + " " + y);
+           // System.out.println("Clicked! --> coords: " + x + " " + y);
 
 
             if (!shapes.isEmpty()) {
@@ -67,21 +52,21 @@ public class DrawingPalette extends SimpleDrawing {
                     if (((x >= startX - 2 && x <= endX + 2) || (x <= startX + 2 && x >= endX - 2)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
                         shapes.remove(i);
                         this.hideAllPoints();
-                        System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                       // System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
                         for (Shape s : shapes) s.draw(this);
                     }
                 } else if ((shapes.get(i).getShape().equalsIgnoreCase("line") || shapes.get(i).getShape().equalsIgnoreCase("arrow")) && (shapes.get(i).getEndY() == shapes.get(i).getStartY())) {
                     if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY + 2 && y >= endY - 2) || (y >= startY - 2 && y <= endY + 2))) {
                         shapes.remove(i);
                         this.hideAllPoints();
-                        System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                       // System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
                         for (Shape s : shapes) s.draw(this);
                     }
                 } else if (((x >= startX && x <= endX) || (x <= startX && x >= endX)) && ((y <= startY && y >= endY) || (y >= startY && y <= endY))) {
                     // shapes.get(i).erase(this);
                     shapes.remove(i);
                     this.hideAllPoints();
-                    System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
+                   // System.out.println("Erased! -->contents of shapes list: " + shapes.toString());
                     for (Shape s : shapes) s.draw(this);
                 }
 
@@ -166,7 +151,7 @@ public class DrawingPalette extends SimpleDrawing {
      */
     @Override
     public void componentResized(ComponentEvent e) {
-        System.out.println("The size of the window is: " + e.getComponent().getSize());
+        //System.out.println("The size of the window is: " + e.getComponent().getSize());
         if (e != null && shapes != null) {
             System.out.println("Window resized, should be redrawing window from linked list now...");
             int numShapes = shapes.size();

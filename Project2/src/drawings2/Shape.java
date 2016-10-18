@@ -1,6 +1,5 @@
 package drawings2;
 
-import csci348.drawings.SimpleDrawing;
 
 public abstract class Shape implements ShapeInterface {
 
@@ -18,8 +17,4 @@ public abstract class Shape implements ShapeInterface {
         return "Abstract shape.";
     }
 
-
-//	public int getStartX() {
-//		return 
-//	}
 }

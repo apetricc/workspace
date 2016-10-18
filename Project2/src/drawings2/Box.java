@@ -8,11 +8,6 @@ public class Box extends Shape {
     int width;
     int endX;
     int endY;
-    int xConnect1;
-    int yConnect1;
-    int xConnect2;
-    int yConnect2;
-    int xJoint;
     Line bottom;
     Line top;
     Line left;
@@ -41,7 +36,7 @@ public class Box extends Shape {
      * object to an ArrayList in the DrawProgram it is passed as a parameter
      *
      * @param palette the Drawing within which the Box will appear
-     * @param draw    the DrawProgram within which the Box will appear
+     * @param palette the DrawProgram within which the Box will appear
      */
     public void draw(DrawingPalette palette) {
         int aX = startX;
@@ -62,6 +57,10 @@ public class Box extends Shape {
         right.draw(palette);
     }// draw
 
+    /**
+     * erase hides the points of the Box.
+     * @param palette the DrawingPalette window to erase the Box from.
+     */
     public void erase(DrawingPalette palette) {
         bottom.erase(palette);
         top.erase(palette);
@@ -83,6 +82,16 @@ public class Box extends Shape {
 
     public int getEndY() {
         return endY;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     @Override

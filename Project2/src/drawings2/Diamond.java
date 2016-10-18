@@ -22,7 +22,11 @@ public class Diamond extends Shape {
         endX = startX + width;
         endY = startY + height;
     }
-//startX, startY at lower left of box area that diamond resides within (for erasing purposes)
+
+    /**
+     * draw shows the points of the Diamond
+     * @param palette the DrawingPalette to draw the Diamond on
+     */
     public void draw(DrawingPalette palette) {
         int aX = startX;
         int aY = startY + height/2;
@@ -63,6 +67,16 @@ public class Diamond extends Shape {
 
     public int getEndY() {
         return endY;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     @Override

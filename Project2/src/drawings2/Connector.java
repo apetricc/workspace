@@ -3,7 +3,7 @@ package drawings2;
 /**
  * Created by petriccione on 10/15/16.
  */
-public class Connector extends Shape{
+public class Connector extends Shape {
 
     int xConnect1;
     int yConnect1;
@@ -32,8 +32,9 @@ public class Connector extends Shape{
 
     /**
      * Public constructor for Connector class
-     * @param shape1 The first Box that will be connected by the Connector
-     * @param shape2 The second Box that will be connected by the Connector
+     *
+     * @param shape1  The first Box that will be connected by the Connector
+     * @param shape2  The second Box that will be connected by the Connector
      * @param palette The DrawingPalette where the Connector will be shown
      */
     public Connector(Shape shape1, Shape shape2, DrawingPalette palette) {
@@ -48,6 +49,7 @@ public class Connector extends Shape{
 
     /**
      * draw makes the Connector object visible in the window
+     *
      * @param palette The DrawingPalette where the Connector will be drawn
      */
     public void draw(DrawingPalette palette) {
@@ -74,6 +76,7 @@ public class Connector extends Shape{
 
     /**
      * right is one case of how two Shapes will be connected
+     *
      * @param box2
      * @param palette
      */
@@ -107,6 +110,7 @@ public class Connector extends Shape{
         height = Math.abs(vLine1.endY - vLine1.startY);
 
     }// above
+
     private void below(Shape box2, DrawingPalette palette) {
         xConnect1 = shape1.getStartX() + shape1.getWidth() / 2;
         yConnect1 = shape1.getStartY();
@@ -118,6 +122,7 @@ public class Connector extends Shape{
         height = Math.abs(vLine1.endY - vLine1.getStartY());
 
     }// below
+
     private void leftAndNotAdjacent(Shape box2, DrawingPalette palette) {
         xConnect1 = shape1.getStartX() + shape1.getWidth();
         yConnect1 = shape1.getStartY() + shape1.getHeight() / 2;
@@ -134,7 +139,6 @@ public class Connector extends Shape{
         height = Math.abs(hLine1.startY - hLine2.startY);
 
     }// leftAndNotAdjacent
-
 
 
     private void rightAndNotAdjacent(Shape box2, DrawingPalette palette) {
@@ -154,10 +158,6 @@ public class Connector extends Shape{
     }// rightAndNotAdjacent
 
 
-
-
-
-
     /**
      * erase erases the Line objects of the Box object it is called on
      *
@@ -165,17 +165,16 @@ public class Connector extends Shape{
      * @param draw    the DrawProgram within which the Box will be erased
      */
     public void erase(DrawingPalette palette) {
-        if ((box1IsRight && horizontallyAdjacent)||(box1IsLeft && horizontallyAdjacent))
+        if ((box1IsRight && horizontallyAdjacent) || (box1IsLeft && horizontallyAdjacent))
             line1.erase(palette);
-        if ((box1IsAbove && verticallyAdjacent)||(box1IsBelow && verticallyAdjacent))
+        if ((box1IsAbove && verticallyAdjacent) || (box1IsBelow && verticallyAdjacent))
             vLine1.erase(palette);
 
-        if ((box1IsLeft && !horizontallyAdjacent)||(box1IsRight && !horizontallyAdjacent)) {
+        if ((box1IsLeft && !horizontallyAdjacent) || (box1IsRight && !horizontallyAdjacent)) {
             hLine1.erase(palette);
             vLine1.erase(palette);
             hLine2.erase(palette);
-        }
-        else {
+        } else {
             hLine1.erase(palette);
             hLine2.erase(palette);
             vLine1.erase(palette);
@@ -202,13 +201,16 @@ public class Connector extends Shape{
     public int getEndY() {
         return endY;
     }
+
     public String getShape() {
         return "connector";
     }
+
     public int getHeight() {
-        return 0;
+        return height;
     }
+
     public int getWidth() {
-        return 0;
+        return width;
     }
 }

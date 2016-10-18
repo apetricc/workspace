@@ -22,7 +22,11 @@ public class Circle extends Shape {
         height = startY + radius * 2;
     }
 
-
+    /**
+     * draw shows the points that form a circle within a bounding box
+     *
+     * @param palette the DrawingPalette where the Circle will be drawn
+     */
     @Override
     public void draw(DrawingPalette palette) {
         int midX = startX + radius;
